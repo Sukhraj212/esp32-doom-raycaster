@@ -1,0 +1,18 @@
+dependencies:
+  idf:
+    source:
+      type: idf
+    version: 5.5.3
+  tny-robotics/Sh1106-esp-idf:
+    component_hash: 7be190d7c58cd635adf8b74b3a841f8245f2f82f36d135a64d8e53cfab39124d
+    dependencies: []
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.0.0
+direct_dependencies:
+- idf
+- tny-robotics/Sh1106-esp-idf
+manifest_hash: 67153b73b2b0b8005d410466dadb19d16f981867d82423cbf05f6b0dd8a2791b
+target: esp32
+version: 2.0.0
