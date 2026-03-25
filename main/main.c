@@ -5,10 +5,9 @@
 #include "freertos/task.h"
 #include "driver/i2c.h"
 #include "lcd.h"
-
 #include "esp_log.h"
 
-// Display
+// Display config for the SH1106 OLED
 
 #define I2C_MASTER_SCL_IO    22
 #define I2C_MASTER_SDA_IO    21
@@ -19,7 +18,7 @@
 #define SH1106_HEIGHT        64
 #define SH1106_PAGES         8
 
-// Ray casting
+// Ray casting config (3D ENGINE)
 #define map_W       32
 #define map_H       32
 #define FOV         (M_PI / 3.0f) // 60 degrees
@@ -27,7 +26,7 @@
 #define HALF_FOV    (FOV / 2.0f) 
 #define MAX_DEPTH   16.0f
 
-// Button Matrix pins
+// 4x4 Button Matrix pins
 #define ROW1        26
 #define ROW2        25
 #define ROW3        33
@@ -46,7 +45,7 @@
 #define ENEMY_SPEED 0.05f
 
 
-// Map
+// Map (1 = wall, 0 = empty)
 static const int map[map_H][map_W] = {
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
     {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
@@ -82,7 +81,7 @@ static const int map[map_H][map_W] = {
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 };
 
-// Player
+// Player structure
 typedef struct{
     float x;
     float y;
@@ -95,21 +94,23 @@ static Player player = {
     .angle = 0.0f,
 };
 
+// Player stats (HUD values)
 struct player_stats {
     int health;
     int armor;
     int ammo;
 };
 
-//Enemy
+//Enemy structure + storage
 struct enemy {
     float x, y;
     int health;
-    int active;
+    int active; // 1 = alive, 0 = dead/inactive
 };
 
 struct enemy enemies[MAX_ENEMIES];
 
+// Initialize enemies (all inactive)
 void enemies_init(void) {
     for (int i = 0; i < MAX_ENEMIES; i++) {
         enemies[i].health = 50;
@@ -117,21 +118,27 @@ void enemies_init(void) {
     }
 }
 
+// Enemy AI: Move toward player + deal damage
 void enemies_update(struct player_stats *stats) {
 
     for (int i = 0; i < MAX_ENEMIES; i++) {
         if (enemies[i].active == 1) {
+
+            // Direction vector to player
             float dx = player.x - enemies[i].x;
             float dy = player.y - enemies[i].y;
 
             float len = sqrt(dx * dx + dy * dy);
-
+            
+            // Normalize (unit vector)
             dx = dx / len;
             dy = dy / len;
 
+            // Attempt movement
             float nx = enemies[i].x + dx * ENEMY_SPEED;
             float ny = enemies[i].y + dy * ENEMY_SPEED;
             
+            // Collision with map
             if ((int)nx >= 0 && (int)nx < map_W && (int)ny >= 0 && (int)ny < map_H) {
                  if (map[(int)enemies[i].y][(int)nx] != 1) 
                 enemies[i].x = nx;
@@ -140,10 +147,14 @@ void enemies_update(struct player_stats *stats) {
                     enemies[i].y = ny;
             
             }
+
+            // Damage tick (prevents instant rapid damage)
             static int damage_tick = 0;
             damage_tick++;
 
             float dist_to_player = sqrtf(powf(player.x - enemies[i].x , 2) + powf(player.y - enemies[i].y, 2));
+
+            // If close to player, deal damage to them
             if (dist_to_player < 0.5f && damage_tick >= 10) {
                 stats -> health -= 10;
                 if (stats -> health < 0) {
@@ -157,7 +168,7 @@ void enemies_update(struct player_stats *stats) {
 
 }
 
-// Frame buffer
+// Frame buffer (OLED)
 static uint8_t buffer[SH1106_WIDTH * SH1106_PAGES];
 
 // Forward Declarations
@@ -167,11 +178,14 @@ static int prev_map_btn = 0;
 static void render_automap(void);
 
 // I2C / Display drivers 
+
+// Send command to OLED display
 static void sh1106_cmd(uint8_t cmd) {
     uint8_t buf[2] = {0x00, cmd};
     i2c_master_write_to_device(I2C_MASTER_NUM, SH1106_ADDR, buf, 2, pdMS_TO_TICKS(100));
 }
 
+// Initialize I2C peripherals
 static void i2c_init(void) {
     i2c_config_t conf = {
         .mode               = I2C_MODE_MASTER,
@@ -185,8 +199,9 @@ static void i2c_init(void) {
     i2c_driver_install(I2C_MASTER_NUM, conf.mode, 0, 0, 0);
 }
 
+// Initialize OLED controller
 static void sh1106_init(void) {
-    sh1106_cmd(0xAE);
+    sh1106_cmd(0xAE); // Display off
     sh1106_cmd(0xD5); sh1106_cmd(0x80);
     sh1106_cmd(0xA8); sh1106_cmd(0x3F);
     sh1106_cmd(0xD3); sh1106_cmd(0x00);
@@ -200,9 +215,10 @@ static void sh1106_init(void) {
     sh1106_cmd(0xDB); sh1106_cmd(0x40);
     sh1106_cmd(0xA4);
     sh1106_cmd(0xA6);
-    sh1106_cmd(0xAF);
+    sh1106_cmd(0xAF); // Display on
 }
 
+// Push Frame buffer onto the OLED screen
 static void sh1106_draw(uint8_t *buf) {
     for (int page = 0; page < SH1106_PAGES; page++) {
         sh1106_cmd(0xB0 + page);
@@ -215,6 +231,7 @@ static void sh1106_draw(uint8_t *buf) {
     }
 }
 
+// Set for clear pixel in buffer
 static void set_pixel(uint8_t *buf, int x, int y, int on) {
     if (x < 0 || x >= SH1106_WIDTH || y < 0 || y >= SH1106_HEIGHT) return;
     if (on)
@@ -223,7 +240,9 @@ static void set_pixel(uint8_t *buf, int x, int y, int on) {
         buf[(y / 8) * SH1106_WIDTH + x] &= (1 << (y % 8));
 }
 
-// Draw vertical line
+// RENDERING (3D WALLS)
+
+// Draw vertical wall slice with distance shading
 static void draw_vline_shaded(uint8_t *buf, int x, int y0, int y1, float dist) {
     if (y0 > y1) { int t = y0; y0 = y1; y1 = t; } // Swap if needed
     for (int y = y0; y <= y1; y++) {
@@ -246,6 +265,7 @@ static void draw_vline_shaded(uint8_t *buf, int x, int y0, int y1, float dist) {
     }
 }
 
+// Draw the floor(we aint hovering over the void, lol)
 static void draw_floor_ceiling(uint8_t *buf, int x, int wall_top, int wall_bottom) {
     // ceiling - Left blank intentionally
 
@@ -256,6 +276,8 @@ static void draw_floor_ceiling(uint8_t *buf, int x, int wall_top, int wall_botto
             set_pixel(buf, x, y, 1);
     }
 }
+
+// INPUT HANDLING (KEYPAD)
 
 // Button Matrix
 static void keypad_init(void) {
@@ -283,6 +305,8 @@ static int key_pressed(int row_pin, int col_pin) {
     return state;
 }
 
+// RAYCASTING CORE
+
 // Cast a single ray. return wall distance
 static float cast_ray(float px, float py, float angle) {
     float ray_cos = cosf(angle);
@@ -302,18 +326,18 @@ static float cast_ray(float px, float py, float angle) {
     return MAX_DEPTH;
 }
 
-// Render one frame
+// Render full 3D scene
 static void render(void) {
     memset(buffer, 0, sizeof(buffer));
 
     for (int col = 0; col < NUM_RAYS; col++) {
-        // Angle for this ray
+        // Compute ray angle
         float ray_angle = player.angle - HALF_FOV
                         + ((float)col / NUM_RAYS) * FOV;
 
         float dist = cast_ray(player.x, player.y, ray_angle);
 
-        // Fix fisheye
+        // Remove fisheye distortion
         dist *= cosf(ray_angle - player.angle);
 
         // Wall height — closer = taller
@@ -531,7 +555,9 @@ static void handle_input(struct player_stats *stats) {
     prev_map_btn = map_btn;
 }
 
-// Main
+// MAIN LOOP
+
+
 void app_main(void) {
     lcd_init();
     lcd_print("DOOM ESP32");
