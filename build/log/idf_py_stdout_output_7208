@@ -1,0 +1,779 @@
+Command: C:\Espressif\tools\python\v5.5.3\venv\Scripts\python.exe C:\esp\v5.5.3\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Sukhraj Singh\Desktop\doom_esp32\build\doom_esp32.elf C:\Users\Sukhraj Singh\Desktop\doom_esp32\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\tools\python\v5.5.3\venv\Scripts\python.exe' 'C:\esp\v5.5.3\esp-idf\tools\idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.3 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar 22 2026 11:10:24[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0bda4h ( 48548) map[0m
+[0;32mI (103) esp_image: segment 1: paddr=0001bdcc vaddr=3ffb0000 size=02874h ( 10356) load[0m
+[0;32mI (107) esp_image: segment 2: paddr=0001e648 vaddr=40080000 size=019d0h (  6608) load[0m
+[0;32mI (110) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=16e74h ( 93812) map[0m
+[0;32mI (146) esp_image: segment 4: paddr=00036e9c vaddr=400819d0 size=0ca0ch ( 51724) load[0m
+[0;32mI (167) esp_image: segment 5: paddr=000438b0 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (174) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (174) boot: Disabling RNG early entropy source...[0m
+[0;32mI (185) cpu_start: Multicore app[0m
+[0;32mI (193) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (193) cpu_start: Pro cpu start user code[0m
+[0;32mI (193) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (195) app_init: Application information:[0m
+[0;32mI (199) app_init: Project name:     doom_esp32[0m
+[0;32mI (203) app_init: App version:      1[0m
+[0;32mI (207) app_init: Compile time:     Mar 22 2026 11:07:31[0m
+[0;32mI (212) app_init: ELF file SHA256:  8930da573...[0m
+[0;32mI (216) app_init: ESP-IDF:          v5.5.3[0m
+[0;32mI (220) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (224) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (228) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (232) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (238) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (243) heap_init: At 3FFB35D0 len 0002CA30 (178 KiB): DRAM[0m
+[0;32mI (248) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (253) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (259) heap_init: At 4008E3DC len 00011C24 (71 KiB): IRAM[0m
+[0;33mW (265) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (277) spi_flash: detected chip: generic[0m
+[0;32mI (281) spi_flash: flash io: dio[0m
+[0;33mW (284) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (296) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (306) main_task: Started on CPU0[0m
+[0;32mI (316) main_task: Calling app_main()[0m
+[0;32mI (2446) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2446) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2446) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2446) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2446) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2456) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2456) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2466) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2496) DEBUG: render_automap called, enemy active=1 ex=14 ey=7[0m
+[0;32mI (2496) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2496) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2496) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2506) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2506) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2516) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2516) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2516) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2556) DEBUG: render_automap called, enemy active=1 ex=14 ey=7[0m
+[0;32mI (2556) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2556) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2556) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2566) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2566) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2576) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2576) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2576) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2616) DEBUG: render_automap called, enemy active=1 ex=14 ey=7[0m
+[0;32mI (2616) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2616) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2616) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2626) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2626) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2626) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2636) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2636) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2676) DEBUG: render_automap called, enemy active=1 ex=14 ey=7[0m
+[0;32mI (2676) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2676) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2676) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2686) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2686) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2686) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2696) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2696) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2736) DEBUG: render_automap called, enemy active=1 ex=14 ey=7[0m
+[0;32mI (2736) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2736) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2736) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2736) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2746) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2746) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2756) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2756) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2796) DEBUG: render_automap called, enemy active=1 ex=14 ey=7[0m
+[0;32mI (2796) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2796) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2796) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2796) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2806) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2806) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2816) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2816) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (2856) DEBUG: render_automap called, enemy active=1 ex=14 ey=7[0m
+[0;32mI (40366) DEBUG: Enemy 0: active=1 x=3.50 y=3.50[0m
+[0;32mI (40366) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40366) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40366) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40366) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40376) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40376) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40386) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40416) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (40416) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40416) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40426) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40426) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40426) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40436) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40436) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40446) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40476) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (40476) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40476) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40476) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40486) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40486) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40496) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40496) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40506) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40536) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (40536) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40536) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40536) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40546) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40546) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40556) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40556) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40566) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40596) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (40596) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40596) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40596) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40606) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40606) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40616) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40616) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40626) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40656) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (40656) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40656) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40656) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40666) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40666) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40676) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40676) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40686) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40716) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (40716) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40716) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40716) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40726) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40726) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40736) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40736) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40746) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40776) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (40776) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40776) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40776) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40786) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40786) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40796) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40796) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40806) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40836) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (40836) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40836) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40836) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40846) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40846) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40856) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40856) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40866) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40896) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (40896) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40896) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40896) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40906) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40906) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40916) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40916) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40926) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40956) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (40956) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40956) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40956) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40966) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40966) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40976) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40976) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (40986) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41016) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (41016) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41016) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41016) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41026) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41026) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41036) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41036) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41046) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41076) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (41076) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41076) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41076) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41086) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41086) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41096) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41096) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41106) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41136) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (41136) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41136) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41136) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41146) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41146) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41156) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41156) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41166) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41196) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (41196) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41196) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41196) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41206) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41206) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41216) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41216) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41226) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41256) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (41256) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41256) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41256) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41266) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41266) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41276) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41276) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41286) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41316) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (41316) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41316) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41316) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41326) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41326) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41336) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41336) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41346) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41376) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (41996) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41996) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41996) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (41996) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42006) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42006) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42016) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42016) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42046) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42046) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42056) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42056) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42056) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42066) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42066) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42076) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42076) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42106) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42106) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42106) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42116) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42116) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42126) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42126) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42136) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42136) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42166) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42166) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42166) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42176) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42176) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42186) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42186) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42196) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42196) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42226) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42226) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42226) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42236) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42236) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42246) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42246) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42256) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42256) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42286) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42286) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42286) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42296) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42296) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42306) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42306) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42316) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42316) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42346) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42346) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42346) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42356) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42356) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42366) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42366) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42366) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42376) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42406) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42406) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42406) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42416) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42416) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42426) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42426) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42426) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42436) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42466) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42466) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42466) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42476) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42476) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42486) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42486) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42486) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42496) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42526) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42526) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42526) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42536) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42536) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42546) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42546) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42546) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42556) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42586) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42586) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42586) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42596) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42596) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42606) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42606) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42606) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42616) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42646) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42646) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42646) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42656) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42656) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42666) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42666) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42666) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42676) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42706) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42706) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42706) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42716) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42716) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42726) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42726) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42726) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42736) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42766) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42766) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42766) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42776) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42776) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42786) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42786) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42786) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42796) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42826) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42826) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42826) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42836) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42836) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42846) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42846) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42846) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42856) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42886) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42886) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42886) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42896) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42896) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42906) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42906) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42906) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42916) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42946) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (42946) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42946) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42956) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42956) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42966) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42966) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42966) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (42976) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43006) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43006) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43006) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43016) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43016) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43026) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43026) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43026) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43036) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43066) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43066) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43066) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43076) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43076) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43086) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43086) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43086) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43096) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43126) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43126) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43126) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43136) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43136) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43146) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43146) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43146) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43156) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43186) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43186) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43186) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43196) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43196) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43206) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43206) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43206) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43216) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43246) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43246) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43246) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43256) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43256) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43266) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43266) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43266) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43276) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43306) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43306) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43306) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43316) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43316) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43326) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43326) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43326) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43336) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43366) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43366) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43366) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43376) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43376) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43386) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43386) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43386) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43396) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43426) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43426) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43426) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43436) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43436) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43446) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43446) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43446) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43456) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43486) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43486) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43486) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43496) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43496) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43496) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43506) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43506) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43516) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43546) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43546) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43546) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43556) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43556) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43556) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43566) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43566) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43576) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43606) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43606) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43606) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43616) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43616) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43616) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43626) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43626) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43636) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43666) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43666) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43666) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43676) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43676) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43676) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43686) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43686) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43696) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43726) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43726) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43726) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43736) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43736) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43736) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43746) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43746) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43756) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43786) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43786) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43786) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43796) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43796) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43796) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43806) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43806) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43816) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43846) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43846) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43846) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43856) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43856) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43856) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43866) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43866) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43876) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43906) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43906) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43906) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43916) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43916) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43916) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43926) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43926) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43936) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43966) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (43966) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43966) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43976) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43976) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43976) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43986) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43986) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (43996) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44026) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44026) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44026) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44036) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44036) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44036) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44046) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44046) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44056) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44086) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44086) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44086) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44096) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44096) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44096) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44106) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44106) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44116) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44146) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44146) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44146) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44156) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44156) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44156) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44166) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44166) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44176) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44206) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44206) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44206) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44216) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44216) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44216) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44226) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44226) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44236) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44266) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44266) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44266) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44276) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44276) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44276) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44286) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44286) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44296) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44326) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44326) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44326) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44336) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44336) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44336) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44346) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44346) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44356) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44386) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44386) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44386) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44396) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44396) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44396) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44406) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44406) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44416) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44446) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44446) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44446) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44456) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44456) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44456) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44466) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44466) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44476) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44506) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44506) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44506) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44506) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44516) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44516) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44526) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44526) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44536) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44566) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44566) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44566) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44566) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44576) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44576) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44586) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44586) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44596) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44626) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44626) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44626) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44626) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44636) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44636) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44646) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44646) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44656) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44686) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44686) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44686) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44686) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44696) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44696) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44706) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44706) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44716) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44746) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44746) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44746) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44746) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44756) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44756) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44766) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44766) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44776) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44806) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44806) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44806) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44806) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44816) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44816) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44826) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44826) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44836) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44866) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44866) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44866) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44866) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44876) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44876) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44886) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44886) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44896) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44926) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44926) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44926) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44926) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44936) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44936) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44946) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44946) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44956) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44986) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (44986) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44986) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44986) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44996) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (44996) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45006) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45006) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45016) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45046) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (45046) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45046) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45046) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45056) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45056) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45066) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45066) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45076) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45106) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (45106) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45106) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45106) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45116) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45116) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45126) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45126) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45136) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45166) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (45166) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45166) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45166) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45176) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45176) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45186) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45186) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45196) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45226) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (45226) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45226) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45226) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45236) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45236) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45246) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45246) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45256) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45286) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m
+[0;32mI (45286) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45286) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45286) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45296) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45296) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45306) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45306) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45316) DEBUG: Enemy 0: active=1 x=3.00 y=3.00[0m
+[0;32mI (45346) DEBUG: render_automap called, enemy active=1 ex=12 ey=6[0m

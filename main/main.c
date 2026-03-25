@@ -6,6 +6,8 @@
 #include "driver/i2c.h"
 #include "lcd.h"
 
+#include "esp_log.h"
+
 // Display
 
 #define I2C_MASTER_SCL_IO    22
@@ -41,6 +43,7 @@
 
 // Enemies
 #define MAX_ENEMIES 8
+#define ENEMY_SPEED 0.05f
 
 
 // Map
@@ -92,6 +95,13 @@ static Player player = {
     .angle = 0.0f,
 };
 
+struct player_stats {
+    int health;
+    int armor;
+    int ammo;
+};
+
+//Enemy
 struct enemy {
     float x, y;
     int health;
@@ -107,6 +117,45 @@ void enemies_init(void) {
     }
 }
 
+void enemies_update(struct player_stats *stats) {
+
+    for (int i = 0; i < MAX_ENEMIES; i++) {
+        if (enemies[i].active == 1) {
+            float dx = player.x - enemies[i].x;
+            float dy = player.y - enemies[i].y;
+
+            float len = sqrt(dx * dx + dy * dy);
+
+            dx = dx / len;
+            dy = dy / len;
+
+            float nx = enemies[i].x + dx * ENEMY_SPEED;
+            float ny = enemies[i].y + dy * ENEMY_SPEED;
+            
+            if ((int)nx >= 0 && (int)nx < map_W && (int)ny >= 0 && (int)ny < map_H) {
+                 if (map[(int)enemies[i].y][(int)nx] != 1) 
+                enemies[i].x = nx;
+
+                if (map[(int)ny][(int)enemies[i].x] != 1) 
+                    enemies[i].y = ny;
+            
+            }
+            static int damage_tick = 0;
+            damage_tick++;
+
+            float dist_to_player = sqrtf(powf(player.x - enemies[i].x , 2) + powf(player.y - enemies[i].y, 2));
+            if (dist_to_player < 0.5f && damage_tick >= 10) {
+                stats -> health -= 10;
+                if (stats -> health < 0) {
+                    stats -> health = 0;
+                    damage_tick = 0;
+                }
+            }
+        }
+
+    }
+
+}
 
 // Frame buffer
 static uint8_t buffer[SH1106_WIDTH * SH1106_PAGES];
@@ -171,7 +220,7 @@ static void set_pixel(uint8_t *buf, int x, int y, int on) {
     if (on)
         buf[(y / 8) * SH1106_WIDTH + x] |= (1 << (y % 8));
     else
-        buf[(y / 8) * SH1106_WIDTH + x] &= ~(1 << (y % 8));
+        buf[(y / 8) * SH1106_WIDTH + x] &= (1 << (y % 8));
 }
 
 // Draw vertical line
@@ -278,7 +327,28 @@ static void render(void) {
         draw_vline_shaded(buffer, col, y0, y1, dist);
     }
 
-    sh1106_draw(buffer);
+}
+
+void render_sprites(void) {
+    for (int i = 0; i < MAX_ENEMIES; i++) {
+        float angle_to_enemy = atan2f(enemies[i].y - player.y, enemies[i].x - player.x);
+        float angle_diff = angle_to_enemy - player.angle;
+
+        while (angle_diff > M_PI) angle_diff -= 2 * M_PI;
+        while (angle_diff < -M_PI) angle_diff += 2 * M_PI;
+
+        float dist_to_player = sqrtf(powf(player.x - enemies[i].x, 2) + powf(player.y - enemies[i].y, 2));
+
+        int screen_x = (int)((angle_diff / FOV + 0.5f) * SH1106_WIDTH);
+        if (enemies[i].active == 1 && screen_x >= 0 && screen_x < SH1106_WIDTH) {
+            int sprite_height = (int)(SH1106_HEIGHT/ dist_to_player);
+
+            int y0 = (SH1106_HEIGHT / 2) - (sprite_height / 2);
+            int y1 = (SH1106_HEIGHT / 2) + (sprite_height / 2);
+
+            draw_vline_shaded(buffer, screen_x, y0, y1, dist_to_player);
+        }
+    }
 }
 
 static void render_automap(void) {
@@ -356,13 +426,9 @@ static void render_automap(void) {
     set_pixel(buffer, 124, 3, 1);
 
     sh1106_draw(buffer);
+
 }
 
-struct player_stats {
-    int health;
-    int armor;
-    int ammo;
-};
 
 void lcd_update_hud(struct player_stats *stats) {
     lcd_send_byte(0x80, 0);
@@ -383,6 +449,19 @@ float cast_shoot_ray(void) {
     for (dist = 0.0f; dist < MAX_DEPTH; dist += 0.05f) {
         float rx = player.x + ray_cos * dist;
         float ry = player.y + ray_sin * dist;
+
+        for (int i = 0; i < MAX_ENEMIES; i++) {
+            if (enemies[i].active ==1) {
+                float dist_to_enemy = sqrtf(powf(enemies[i].x - rx, 2) + powf(enemies[i].y - ry, 2));
+                if (dist_to_enemy < 0.4f) {
+                    enemies[i].health -= 25;
+                    if (enemies[i].health <= 0) {
+                        enemies[i].active = 0;
+                    }
+                    return dist;
+                }
+            }
+        }
 
         int mx = (int)rx;
         int my = (int)ry;
@@ -441,6 +520,7 @@ static void handle_input(struct player_stats *stats) {
     if (key_pressed(ROW1, COL4)) {
         if (stats -> ammo > 0) {
            stats -> ammo --;
+            cast_shoot_ray();
         }
     }
 
@@ -459,22 +539,31 @@ void app_main(void) {
     sh1106_init();
     keypad_init();
     enemies_init();
-    enemies[0].x = 3.5f;
-    enemies[0].y = 3.5f;
+    enemies[0].x = 9.0f;
+    enemies[0].y = 4.0f;
     enemies[0].active = 1;
 
     struct player_stats stats = {100, 0, 50};
 
     while (1){
         handle_input(&stats);
-        cast_shoot_ray();
-        if (show_map) 
+
+        static int enemy_tick = 0;
+        enemy_tick++;
+        if (enemy_tick >= 3.5) {
+            enemies_update(&stats);
+            enemy_tick = 0;
+        }
+
+        if (show_map) {
             render_automap();
-        else {
+        } else {
             render();
+            render_sprites();
+            sh1106_draw(buffer);
             lcd_update_hud(&stats);
         }
-        vTaskDelay(pdMS_TO_TICKS(100));
+        vTaskDelay(pdMS_TO_TICKS(33));
     }
 }
 

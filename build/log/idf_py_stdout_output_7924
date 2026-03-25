@@ -1,0 +1,618 @@
+Command: C:\Espressif\tools\python\v5.5.3\venv\Scripts\python.exe C:\esp\v5.5.3\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Users\Sukhraj Singh\Desktop\doom_esp32\build\doom_esp32.elf C:\Users\Sukhraj Singh\Desktop\doom_esp32\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\tools\python\v5.5.3\venv\Scripts\python.exe' 'C:\esp\v5.5.3\esp-idf\tools\idf.py' '-p' 'COM3'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.3 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar 22 2026 11:10:24[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0bd84h ( 48516) map[0m
+[0;32mI (103) esp_image: segment 1: paddr=0001bdac vaddr=3ffb0000 size=02874h ( 10356) load[0m
+[0;32mI (107) esp_image: segment 2: paddr=0001e628 vaddr=40080000 size=019f0h (  6640) load[0m
+[0;32mI (110) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=16df4h ( 93684) map[0m
+[0;32mI (146) esp_image: segment 4: paddr=00036e1c vaddr=400819f0 size=0c9ech ( 51692) load[0m
+[0;32mI (167) esp_image: segment 5: paddr=00043810 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (174) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (174) boot: Disabling RNG early entropy source...[0m
+[0;32mI (185) cpu_start: Multicore app[0m
+[0;32mI (193) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (193) cpu_start: Pro cpu start user code[0m
+[0;32mI (193) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (195) app_init: Application information:[0m
+[0;32mI (199) app_init: Project name:     doom_esp32[0m
+[0;32mI (203) app_init: App version:      1[0m
+[0;32mI (206) app_init: Compile time:     Mar 22 2026 11:07:31[0m
+[0;32mI (212) app_init: ELF file SHA256:  ca294e4c2...[0m
+[0;32mI (216) app_init: ESP-IDF:          v5.5.3[0m
+[0;32mI (220) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (224) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (228) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (232) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (238) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (243) heap_init: At 3FFB35D0 len 0002CA30 (178 KiB): DRAM[0m
+[0;32mI (248) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (253) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (259) heap_init: At 4008E3DC len 00011C24 (71 KiB): IRAM[0m
+[0;33mW (265) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (277) spi_flash: detected chip: generic[0m
+[0;32mI (281) spi_flash: flash io: dio[0m
+[0;33mW (284) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (296) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (306) main_task: Started on CPU0[0m
+[0;32mI (316) main_task: Calling app_main()[0m
+[0;32mI (576) DEBUG: Spawn Check: active=1[0m
+[0;32mI (10206) DEBUG: Enemy 0: active=1 x=3.52 y=3.50[0m
+[0;32mI (10336) DEBUG: Enemy 0: active=1 x=3.54 y=3.50[0m
+[0;32mI (10466) DEBUG: Enemy 0: active=1 x=3.56 y=3.50[0m
+[0;32mI (10596) DEBUG: Enemy 0: active=1 x=3.58 y=3.50[0m
+[0;32mI (10726) DEBUG: Enemy 0: active=1 x=3.60 y=3.50[0m
+[0;32mI (10856) DEBUG: Enemy 0: active=1 x=3.62 y=3.50[0m
+[0;32mI (10986) DEBUG: Enemy 0: active=1 x=3.64 y=3.50[0m
+[0;32mI (11116) DEBUG: Enemy 0: active=1 x=3.66 y=3.50[0m
+[0;32mI (11246) DEBUG: Enemy 0: active=1 x=3.68 y=3.50[0m
+[0;32mI (11376) DEBUG: Enemy 0: active=1 x=3.70 y=3.50[0m
+[0;32mI (11506) DEBUG: Enemy 0: active=1 x=3.72 y=3.50[0m
+[0;32mI (11636) DEBUG: Enemy 0: active=1 x=3.74 y=3.50[0m
+[0;32mI (11766) DEBUG: Enemy 0: active=1 x=3.76 y=3.50[0m
+[0;32mI (11896) DEBUG: Enemy 0: active=1 x=3.78 y=3.50[0m
+[0;32mI (12026) DEBUG: Enemy 0: active=1 x=3.80 y=3.50[0m
+[0;32mI (12156) DEBUG: Enemy 0: active=1 x=3.82 y=3.50[0m
+[0;32mI (12286) DEBUG: Enemy 0: active=1 x=3.84 y=3.50[0m
+[0;32mI (12416) DEBUG: Enemy 0: active=1 x=3.86 y=3.50[0m
+[0;32mI (12546) DEBUG: Enemy 0: active=1 x=3.88 y=3.50[0m
+[0;32mI (12676) DEBUG: Enemy 0: active=1 x=3.90 y=3.50[0m
+[0;32mI (12806) DEBUG: Enemy 0: active=1 x=3.92 y=3.50[0m
+[0;32mI (12936) DEBUG: Enemy 0: active=1 x=3.94 y=3.50[0m
+[0;32mI (13066) DEBUG: Enemy 0: active=1 x=3.96 y=3.50[0m
+[0;32mI (13196) DEBUG: Enemy 0: active=1 x=3.98 y=3.50[0m
+[0;32mI (13326) DEBUG: Enemy 0: active=1 x=4.00 y=3.50[0m
+[0;32mI (13456) DEBUG: Enemy 0: active=1 x=4.02 y=3.50[0m
+[0;32mI (13586) DEBUG: Enemy 0: active=1 x=4.04 y=3.50[0m
+[0;32mI (13716) DEBUG: Enemy 0: active=1 x=4.06 y=3.50[0m
+[0;32mI (13846) DEBUG: Enemy 0: active=1 x=4.08 y=3.50[0m
+[0;32mI (13976) DEBUG: Enemy 0: active=1 x=4.10 y=3.50[0m
+[0;32mI (14106) DEBUG: Enemy 0: active=1 x=4.12 y=3.50[0m
+[0;32mI (14236) DEBUG: Enemy 0: active=1 x=4.14 y=3.50[0m
+[0;32mI (14366) DEBUG: Enemy 0: active=1 x=4.16 y=3.50[0m
+[0;32mI (14496) DEBUG: Enemy 0: active=1 x=4.18 y=3.50[0m
+[0;32mI (14626) DEBUG: Enemy 0: active=1 x=4.20 y=3.50[0m
+[0;32mI (14756) DEBUG: Enemy 0: active=1 x=4.22 y=3.50[0m
+[0;32mI (14886) DEBUG: Enemy 0: active=1 x=4.24 y=3.50[0m
+[0;32mI (15016) DEBUG: Enemy 0: active=1 x=4.26 y=3.50[0m
+[0;32mI (15146) DEBUG: Enemy 0: active=1 x=4.28 y=3.50[0m
+[0;32mI (15276) DEBUG: Enemy 0: active=1 x=4.30 y=3.50[0m
+[0;32mI (15406) DEBUG: Enemy 0: active=1 x=4.32 y=3.50[0m
+[0;32mI (15536) DEBUG: Enemy 0: active=1 x=4.34 y=3.50[0m
+[0;32mI (15666) DEBUG: Enemy 0: active=1 x=4.36 y=3.50[0m
+[0;32mI (15796) DEBUG: Enemy 0: active=1 x=4.38 y=3.50[0m
+[0;32mI (15926) DEBUG: Enemy 0: active=1 x=4.40 y=3.50[0m
+[0;32mI (16056) DEBUG: Enemy 0: active=1 x=4.42 y=3.50[0m
+[0;32mI (16186) DEBUG: Enemy 0: active=1 x=4.44 y=3.50[0m
+[0;32mI (16316) DEBUG: Enemy 0: active=1 x=4.46 y=3.50[0m
+[0;32mI (16446) DEBUG: Enemy 0: active=1 x=4.48 y=3.50[0m
+[0;32mI (16576) DEBUG: Enemy 0: active=1 x=4.50 y=3.50[0m
+[0;32mI (16706) DEBUG: Enemy 0: active=1 x=4.52 y=3.50[0m
+[0;32mI (16836) DEBUG: Enemy 0: active=1 x=4.54 y=3.50[0m
+[0;32mI (16966) DEBUG: Enemy 0: active=1 x=4.56 y=3.50[0m
+[0;32mI (17096) DEBUG: Enemy 0: active=1 x=4.58 y=3.50[0m
+[0;32mI (17226) DEBUG: Enemy 0: active=1 x=4.60 y=3.50[0m
+[0;32mI (17356) DEBUG: Enemy 0: active=1 x=4.62 y=3.50[0m
+[0;32mI (17486) DEBUG: Enemy 0: active=1 x=4.64 y=3.50[0m
+[0;32mI (17616) DEBUG: Enemy 0: active=1 x=4.66 y=3.50[0m
+[0;32mI (17746) DEBUG: Enemy 0: active=1 x=4.68 y=3.50[0m
+[0;32mI (17876) DEBUG: Enemy 0: active=1 x=4.70 y=3.50[0m
+[0;32mI (18006) DEBUG: Enemy 0: active=1 x=4.72 y=3.50[0m
+[0;32mI (18136) DEBUG: Enemy 0: active=1 x=4.74 y=3.50[0m
+[0;32mI (18266) DEBUG: Enemy 0: active=1 x=4.76 y=3.50[0m
+[0;32mI (18396) DEBUG: Enemy 0: active=1 x=4.78 y=3.50[0m
+[0;32mI (18526) DEBUG: Enemy 0: active=1 x=4.80 y=3.50[0m
+[0;32mI (18656) DEBUG: Enemy 0: active=1 x=4.82 y=3.50[0m
+[0;32mI (18786) DEBUG: Enemy 0: active=1 x=4.84 y=3.50[0m
+[0;32mI (18916) DEBUG: Enemy 0: active=1 x=4.86 y=3.50[0m
+[0;32mI (19046) DEBUG: Enemy 0: active=1 x=4.88 y=3.50[0m
+[0;32mI (19176) DEBUG: Enemy 0: active=1 x=4.90 y=3.50[0m
+[0;32mI (19306) DEBUG: Enemy 0: active=1 x=4.92 y=3.50[0m
+[0;32mI (19436) DEBUG: Enemy 0: active=1 x=4.94 y=3.50[0m
+[0;32mI (19566) DEBUG: Enemy 0: active=1 x=4.96 y=3.50[0m
+[0;32mI (19696) DEBUG: Enemy 0: active=1 x=4.98 y=3.50[0m
+[0;32mI (19826) DEBUG: Enemy 0: active=1 x=5.00 y=3.50[0m
+[0;32mI (19956) DEBUG: Enemy 0: active=1 x=5.02 y=3.50[0m
+[0;32mI (20086) DEBUG: Enemy 0: active=1 x=5.04 y=3.50[0m
+[0;32mI (20216) DEBUG: Enemy 0: active=1 x=5.06 y=3.50[0m
+[0;32mI (20346) DEBUG: Enemy 0: active=1 x=5.08 y=3.50[0m
+[0;32mI (20476) DEBUG: Enemy 0: active=1 x=5.10 y=3.50[0m
+[0;32mI (20606) DEBUG: Enemy 0: active=1 x=5.12 y=3.50[0m
+[0;32mI (20736) DEBUG: Enemy 0: active=1 x=5.14 y=3.50[0m
+[0;32mI (20866) DEBUG: Enemy 0: active=1 x=5.16 y=3.50[0m
+[0;32mI (20996) DEBUG: Enemy 0: active=1 x=5.18 y=3.50[0m
+[0;32mI (21126) DEBUG: Enemy 0: active=1 x=5.20 y=3.50[0m
+[0;32mI (21256) DEBUG: Enemy 0: active=1 x=5.22 y=3.50[0m
+[0;32mI (21386) DEBUG: Enemy 0: active=1 x=5.24 y=3.50[0m
+[0;32mI (21516) DEBUG: Enemy 0: active=1 x=5.26 y=3.50[0m
+[0;32mI (21646) DEBUG: Enemy 0: active=1 x=5.28 y=3.50[0m
+[0;32mI (21776) DEBUG: Enemy 0: active=1 x=5.30 y=3.50[0m
+[0;32mI (21906) DEBUG: Enemy 0: active=1 x=5.32 y=3.50[0m
+[0;32mI (22036) DEBUG: Enemy 0: active=1 x=5.34 y=3.50[0m
+[0;32mI (22166) DEBUG: Enemy 0: active=1 x=5.36 y=3.50[0m
+[0;32mI (22296) DEBUG: Enemy 0: active=1 x=5.38 y=3.50[0m
+[0;32mI (22426) DEBUG: Enemy 0: active=1 x=5.40 y=3.50[0m
+[0;32mI (22556) DEBUG: Enemy 0: active=1 x=5.42 y=3.50[0m
+[0;32mI (22686) DEBUG: Enemy 0: active=1 x=5.44 y=3.50[0m
+[0;32mI (22816) DEBUG: Enemy 0: active=1 x=5.46 y=3.50[0m
+[0;32mI (22946) DEBUG: Enemy 0: active=1 x=5.48 y=3.50[0m
+[0;32mI (23076) DEBUG: Enemy 0: active=1 x=5.50 y=3.50[0m
+[0;32mI (23206) DEBUG: Enemy 0: active=1 x=5.52 y=3.50[0m
+[0;32mI (23336) DEBUG: Enemy 0: active=1 x=5.54 y=3.50[0m
+[0;32mI (23466) DEBUG: Enemy 0: active=1 x=5.56 y=3.50[0m
+[0;32mI (23596) DEBUG: Enemy 0: active=1 x=5.58 y=3.50[0m
+[0;32mI (23726) DEBUG: Enemy 0: active=1 x=5.60 y=3.50[0m
+[0;32mI (23856) DEBUG: Enemy 0: active=1 x=5.62 y=3.50[0m
+[0;32mI (23986) DEBUG: Enemy 0: active=1 x=5.64 y=3.50[0m
+[0;32mI (24116) DEBUG: Enemy 0: active=1 x=5.66 y=3.50[0m
+[0;32mI (24246) DEBUG: Enemy 0: active=1 x=5.68 y=3.50[0m
+[0;32mI (24376) DEBUG: Enemy 0: active=1 x=5.70 y=3.50[0m
+[0;32mI (24506) DEBUG: Enemy 0: active=1 x=5.72 y=3.50[0m
+[0;32mI (24636) DEBUG: Enemy 0: active=1 x=5.74 y=3.50[0m
+[0;32mI (24766) DEBUG: Enemy 0: active=1 x=5.76 y=3.50[0m
+[0;32mI (24896) DEBUG: Enemy 0: active=1 x=5.78 y=3.50[0m
+[0;32mI (25026) DEBUG: Enemy 0: active=1 x=5.80 y=3.50[0m
+[0;32mI (25156) DEBUG: Enemy 0: active=1 x=5.82 y=3.50[0m
+[0;32mI (25286) DEBUG: Enemy 0: active=1 x=5.84 y=3.50[0m
+[0;32mI (25416) DEBUG: Enemy 0: active=1 x=5.86 y=3.50[0m
+[0;32mI (25546) DEBUG: Enemy 0: active=1 x=5.88 y=3.50[0m
+[0;32mI (25676) DEBUG: Enemy 0: active=1 x=5.90 y=3.50[0m
+[0;32mI (25806) DEBUG: Enemy 0: active=1 x=5.92 y=3.50[0m
+[0;32mI (25936) DEBUG: Enemy 0: active=1 x=5.94 y=3.50[0m
+[0;32mI (26066) DEBUG: Enemy 0: active=1 x=5.96 y=3.50[0m
+[0;32mI (26196) DEBUG: Enemy 0: active=1 x=5.98 y=3.50[0m
+[0;32mI (26326) DEBUG: Enemy 0: active=1 x=6.00 y=3.50[0m
+[0;32mI (26456) DEBUG: Enemy 0: active=1 x=6.02 y=3.50[0m
+[0;32mI (26586) DEBUG: Enemy 0: active=1 x=6.04 y=3.50[0m
+[0;32mI (26716) DEBUG: Enemy 0: active=1 x=6.06 y=3.50[0m
+[0;32mI (26846) DEBUG: Enemy 0: active=1 x=6.08 y=3.50[0m
+[0;32mI (26976) DEBUG: Enemy 0: active=1 x=6.10 y=3.50[0m
+[0;32mI (27106) DEBUG: Enemy 0: active=1 x=6.12 y=3.50[0m
+[0;32mI (27236) DEBUG: Enemy 0: active=1 x=6.14 y=3.50[0m
+[0;32mI (27366) DEBUG: Enemy 0: active=1 x=6.16 y=3.50[0m
+[0;32mI (27496) DEBUG: Enemy 0: active=1 x=6.18 y=3.50[0m
+[0;32mI (27626) DEBUG: Enemy 0: active=1 x=6.20 y=3.50[0m
+[0;32mI (27756) DEBUG: Enemy 0: active=1 x=6.22 y=3.50[0m
+[0;32mI (27886) DEBUG: Enemy 0: active=1 x=6.24 y=3.50[0m
+[0;32mI (28016) DEBUG: Enemy 0: active=1 x=6.26 y=3.50[0m
+[0;32mI (28146) DEBUG: Enemy 0: active=1 x=6.28 y=3.50[0m
+[0;32mI (28276) DEBUG: Enemy 0: active=1 x=6.30 y=3.50[0m
+[0;32mI (28406) DEBUG: Enemy 0: active=1 x=6.32 y=3.50[0m
+[0;32mI (28536) DEBUG: Enemy 0: active=1 x=6.34 y=3.50[0m
+[0;32mI (28666) DEBUG: Enemy 0: active=1 x=6.36 y=3.50[0m
+[0;32mI (28796) DEBUG: Enemy 0: active=1 x=6.38 y=3.50[0m
+[0;32mI (28926) DEBUG: Enemy 0: active=1 x=6.40 y=3.50[0m
+[0;32mI (29056) DEBUG: Enemy 0: active=1 x=6.42 y=3.50[0m
+[0;32mI (29186) DEBUG: Enemy 0: active=1 x=6.44 y=3.50[0m
+[0;32mI (29316) DEBUG: Enemy 0: active=1 x=6.46 y=3.50[0m
+[0;32mI (29446) DEBUG: Enemy 0: active=1 x=6.48 y=3.50[0m
+[0;32mI (29576) DEBUG: Enemy 0: active=1 x=6.50 y=3.50[0m
+[0;32mI (29706) DEBUG: Enemy 0: active=1 x=6.52 y=3.50[0m
+[0;32mI (29836) DEBUG: Enemy 0: active=1 x=6.54 y=3.50[0m
+[0;32mI (29966) DEBUG: Enemy 0: active=1 x=6.56 y=3.50[0m
+[0;32mI (30096) DEBUG: Enemy 0: active=1 x=6.58 y=3.50[0m
+[0;32mI (30226) DEBUG: Enemy 0: active=1 x=6.60 y=3.50[0m
+[0;32mI (30356) DEBUG: Enemy 0: active=1 x=6.62 y=3.50[0m
+[0;32mI (30486) DEBUG: Enemy 0: active=1 x=6.64 y=3.50[0m
+[0;32mI (30616) DEBUG: Enemy 0: active=1 x=6.66 y=3.50[0m
+[0;32mI (30746) DEBUG: Enemy 0: active=1 x=6.68 y=3.50[0m
+[0;32mI (30876) DEBUG: Enemy 0: active=1 x=6.70 y=3.50[0m
+[0;32mI (31006) DEBUG: Enemy 0: active=1 x=6.72 y=3.50[0m
+[0;32mI (31136) DEBUG: Enemy 0: active=1 x=6.74 y=3.50[0m
+[0;32mI (31266) DEBUG: Enemy 0: active=1 x=6.76 y=3.50[0m
+[0;32mI (31396) DEBUG: Enemy 0: active=1 x=6.78 y=3.50[0m
+[0;32mI (31526) DEBUG: Enemy 0: active=1 x=6.80 y=3.50[0m
+[0;32mI (31656) DEBUG: Enemy 0: active=1 x=6.82 y=3.50[0m
+[0;32mI (31786) DEBUG: Enemy 0: active=1 x=6.84 y=3.50[0m
+[0;32mI (31916) DEBUG: Enemy 0: active=1 x=6.86 y=3.50[0m
+[0;32mI (32046) DEBUG: Enemy 0: active=1 x=6.88 y=3.50[0m
+[0;32mI (32176) DEBUG: Enemy 0: active=1 x=6.90 y=3.50[0m
+[0;32mI (32306) DEBUG: Enemy 0: active=1 x=6.92 y=3.50[0m
+[0;32mI (32436) DEBUG: Enemy 0: active=1 x=6.94 y=3.50[0m
+[0;32mI (32566) DEBUG: Enemy 0: active=1 x=6.96 y=3.50[0m
+[0;32mI (32696) DEBUG: Enemy 0: active=1 x=6.98 y=3.50[0m
+[0;32mI (32826) DEBUG: Enemy 0: active=1 x=7.00 y=3.50[0m
+[0;32mI (32956) DEBUG: Enemy 0: active=1 x=7.02 y=3.50[0m
+[0;32mI (33086) DEBUG: Enemy 0: active=1 x=7.04 y=3.50[0m
+[0;32mI (33216) DEBUG: Enemy 0: active=1 x=7.06 y=3.50[0m
+[0;32mI (33346) DEBUG: Enemy 0: active=1 x=7.08 y=3.50[0m
+[0;32mI (33476) DEBUG: Enemy 0: active=1 x=7.10 y=3.50[0m
+[0;32mI (33606) DEBUG: Enemy 0: active=1 x=7.12 y=3.50[0m
+[0;32mI (33736) DEBUG: Enemy 0: active=1 x=7.14 y=3.50[0m
+[0;32mI (33866) DEBUG: Enemy 0: active=1 x=7.16 y=3.50[0m
+[0;32mI (33996) DEBUG: Enemy 0: active=1 x=7.18 y=3.50[0m
+[0;32mI (34126) DEBUG: Enemy 0: active=1 x=7.20 y=3.50[0m
+[0;32mI (34256) DEBUG: Enemy 0: active=1 x=7.22 y=3.50[0m
+[0;32mI (34386) DEBUG: Enemy 0: active=1 x=7.24 y=3.50[0m
+[0;32mI (34516) DEBUG: Enemy 0: active=1 x=7.26 y=3.50[0m
+[0;32mI (34646) DEBUG: Enemy 0: active=1 x=7.28 y=3.50[0m
+[0;32mI (34776) DEBUG: Enemy 0: active=1 x=7.30 y=3.50[0m
+[0;32mI (34906) DEBUG: Enemy 0: active=1 x=7.32 y=3.50[0m
+[0;32mI (35036) DEBUG: Enemy 0: active=1 x=7.34 y=3.50[0m
+[0;32mI (35166) DEBUG: Enemy 0: active=1 x=7.36 y=3.50[0m
+[0;32mI (35296) DEBUG: Enemy 0: active=1 x=7.38 y=3.50[0m
+[0;32mI (35426) DEBUG: Enemy 0: active=1 x=7.40 y=3.50[0m
+[0;32mI (35556) DEBUG: Enemy 0: active=1 x=7.42 y=3.50[0m
+[0;32mI (35686) DEBUG: Enemy 0: active=1 x=7.44 y=3.50[0m
+[0;32mI (35816) DEBUG: Enemy 0: active=1 x=7.46 y=3.50[0m
+[0;32mI (35946) DEBUG: Enemy 0: active=1 x=7.48 y=3.50[0m
+[0;32mI (36076) DEBUG: Enemy 0: active=1 x=7.50 y=3.50[0m
+[0;32mI (36206) DEBUG: Enemy 0: active=1 x=7.52 y=3.50[0m
+[0;32mI (36336) DEBUG: Enemy 0: active=1 x=7.54 y=3.50[0m
+[0;32mI (36466) DEBUG: Enemy 0: active=1 x=7.56 y=3.50[0m
+[0;32mI (36596) DEBUG: Enemy 0: active=1 x=7.58 y=3.50[0m
+[0;32mI (36726) DEBUG: Enemy 0: active=1 x=7.60 y=3.50[0m
+[0;32mI (36856) DEBUG: Enemy 0: active=1 x=7.62 y=3.50[0m
+[0;32mI (36986) DEBUG: Enemy 0: active=1 x=7.64 y=3.50[0m
+[0;32mI (37116) DEBUG: Enemy 0: active=1 x=7.66 y=3.50[0m
+[0;32mI (37246) DEBUG: Enemy 0: active=1 x=7.68 y=3.50[0m
+[0;32mI (37376) DEBUG: Enemy 0: active=1 x=7.70 y=3.50[0m
+[0;32mI (37506) DEBUG: Enemy 0: active=1 x=7.72 y=3.50[0m
+[0;32mI (37636) DEBUG: Enemy 0: active=1 x=7.74 y=3.50[0m
+[0;32mI (37766) DEBUG: Enemy 0: active=1 x=7.76 y=3.50[0m
+[0;32mI (37896) DEBUG: Enemy 0: active=1 x=7.78 y=3.50[0m
+[0;32mI (38026) DEBUG: Enemy 0: active=1 x=7.80 y=3.50[0m
+[0;32mI (38156) DEBUG: Enemy 0: active=1 x=7.82 y=3.50[0m
+[0;32mI (38286) DEBUG: Enemy 0: active=1 x=7.84 y=3.50[0m
+[0;32mI (38416) DEBUG: Enemy 0: active=1 x=7.86 y=3.50[0m
+[0;32mI (38546) DEBUG: Enemy 0: active=1 x=7.88 y=3.50[0m
+[0;32mI (38676) DEBUG: Enemy 0: active=1 x=7.90 y=3.50[0m
+[0;32mI (38806) DEBUG: Enemy 0: active=1 x=7.92 y=3.50[0m
+[0;32mI (38936) DEBUG: Enemy 0: active=1 x=7.94 y=3.50[0m
+[0;32mI (39066) DEBUG: Enemy 0: active=1 x=7.96 y=3.50[0m
+[0;32mI (39196) DEBUG: Enemy 0: active=1 x=7.98 y=3.50[0m
+[0;32mI (39326) DEBUG: Enemy 0: active=1 x=8.00 y=3.50[0m
+[0;32mI (39456) DEBUG: Enemy 0: active=1 x=8.02 y=3.50[0m
+[0;32mI (39586) DEBUG: Enemy 0: active=1 x=8.04 y=3.50[0m
+[0;32mI (39716) DEBUG: Enemy 0: active=1 x=8.06 y=3.50[0m
+[0;32mI (39846) DEBUG: Enemy 0: active=1 x=8.08 y=3.50[0m
+[0;32mI (39976) DEBUG: Enemy 0: active=1 x=8.10 y=3.50[0m
+[0;32mI (40106) DEBUG: Enemy 0: active=1 x=8.12 y=3.50[0m
+[0;32mI (40236) DEBUG: Enemy 0: active=1 x=8.14 y=3.50[0m
+[0;32mI (40366) DEBUG: Enemy 0: active=1 x=8.16 y=3.50[0m
+[0;32mI (40496) DEBUG: Enemy 0: active=1 x=8.18 y=3.50[0m
+[0;32mI (40626) DEBUG: Enemy 0: active=1 x=8.20 y=3.50[0m
+[0;32mI (40756) DEBUG: Enemy 0: active=1 x=8.22 y=3.50[0m
+[0;32mI (40886) DEBUG: Enemy 0: active=1 x=8.24 y=3.50[0m
+[0;32mI (41016) DEBUG: Enemy 0: active=1 x=8.26 y=3.50[0m
+[0;32mI (41146) DEBUG: Enemy 0: active=1 x=8.28 y=3.50[0m
+[0;32mI (41276) DEBUG: Enemy 0: active=1 x=8.30 y=3.50[0m
+[0;32mI (41406) DEBUG: Enemy 0: active=1 x=8.32 y=3.50[0m
+[0;32mI (41536) DEBUG: Enemy 0: active=1 x=8.34 y=3.50[0m
+[0;32mI (41666) DEBUG: Enemy 0: active=1 x=8.36 y=3.50[0m
+[0;32mI (41796) DEBUG: Enemy 0: active=1 x=8.38 y=3.50[0m
+[0;32mI (41926) DEBUG: Enemy 0: active=1 x=8.40 y=3.50[0m
+[0;32mI (42056) DEBUG: Enemy 0: active=1 x=8.42 y=3.50[0m
+[0;32mI (42186) DEBUG: Enemy 0: active=1 x=8.44 y=3.50[0m
+[0;32mI (42316) DEBUG: Enemy 0: active=1 x=8.46 y=3.50[0m
+[0;32mI (42446) DEBUG: Enemy 0: active=1 x=8.48 y=3.50[0m
+[0;32mI (42576) DEBUG: Enemy 0: active=1 x=8.50 y=3.50[0m
+[0;32mI (42706) DEBUG: Enemy 0: active=1 x=8.52 y=3.50[0m
+[0;32mI (42836) DEBUG: Enemy 0: active=1 x=8.54 y=3.50[0m
+[0;32mI (42966) DEBUG: Enemy 0: active=1 x=8.56 y=3.50[0m
+[0;32mI (43096) DEBUG: Enemy 0: active=1 x=8.58 y=3.50[0m
+[0;32mI (43226) DEBUG: Enemy 0: active=1 x=8.60 y=3.50[0m
+[0;32mI (43356) DEBUG: Enemy 0: active=1 x=8.62 y=3.50[0m
+[0;32mI (43486) DEBUG: Enemy 0: active=1 x=8.64 y=3.50[0m
+[0;32mI (43616) DEBUG: Enemy 0: active=1 x=8.66 y=3.50[0m
+[0;32mI (43746) DEBUG: Enemy 0: active=1 x=8.68 y=3.50[0m
+[0;32mI (43876) DEBUG: Enemy 0: active=1 x=8.70 y=3.50[0m
+[0;32mI (44006) DEBUG: Enemy 0: active=1 x=8.72 y=3.50[0m
+[0;32mI (44136) DEBUG: Enemy 0: active=1 x=8.74 y=3.50[0m
+[0;32mI (44266) DEBUG: Enemy 0: active=1 x=8.76 y=3.50[0m
+[0;32mI (44396) DEBUG: Enemy 0: active=1 x=8.78 y=3.50[0m
+[0;32mI (44526) DEBUG: Enemy 0: active=1 x=8.80 y=3.50[0m
+[0;32mI (44656) DEBUG: Enemy 0: active=1 x=8.82 y=3.50[0m
+[0;32mI (44786) DEBUG: Enemy 0: active=1 x=8.84 y=3.50[0m
+[0;32mI (44916) DEBUG: Enemy 0: active=1 x=8.86 y=3.50[0m
+[0;32mI (45046) DEBUG: Enemy 0: active=1 x=8.88 y=3.50[0m
+[0;32mI (45176) DEBUG: Enemy 0: active=1 x=8.90 y=3.50[0m
+[0;32mI (45306) DEBUG: Enemy 0: active=1 x=8.92 y=3.50[0m
+[0;32mI (45436) DEBUG: Enemy 0: active=1 x=8.94 y=3.50[0m
+[0;32mI (45566) DEBUG: Enemy 0: active=1 x=8.96 y=3.50[0m
+[0;32mI (45696) DEBUG: Enemy 0: active=1 x=8.98 y=3.50[0m
+[0;32mI (45826) DEBUG: Enemy 0: active=1 x=9.00 y=3.50[0m
+[0;32mI (45956) DEBUG: Enemy 0: active=1 x=9.02 y=3.50[0m
+[0;32mI (46086) DEBUG: Enemy 0: active=1 x=9.04 y=3.50[0m
+[0;32mI (46216) DEBUG: Enemy 0: active=1 x=9.06 y=3.50[0m
+[0;32mI (46346) DEBUG: Enemy 0: active=1 x=9.08 y=3.50[0m
+[0;32mI (46476) DEBUG: Enemy 0: active=1 x=9.10 y=3.50[0m
+[0;32mI (46606) DEBUG: Enemy 0: active=1 x=9.12 y=3.50[0m
+[0;32mI (46736) DEBUG: Enemy 0: active=1 x=9.14 y=3.50[0m
+[0;32mI (46866) DEBUG: Enemy 0: active=1 x=9.16 y=3.50[0m
+[0;32mI (46996) DEBUG: Enemy 0: active=1 x=9.18 y=3.50[0m
+[0;32mI (47126) DEBUG: Enemy 0: active=1 x=9.20 y=3.50[0m
+[0;32mI (47256) DEBUG: Enemy 0: active=1 x=9.22 y=3.50[0m
+[0;32mI (47386) DEBUG: Enemy 0: active=1 x=9.24 y=3.50[0m
+[0;32mI (47516) DEBUG: Enemy 0: active=1 x=9.26 y=3.50[0m
+[0;32mI (47646) DEBUG: Enemy 0: active=1 x=9.28 y=3.50[0m
+[0;32mI (47776) DEBUG: Enemy 0: active=1 x=9.30 y=3.50[0m
+[0;32mI (47906) DEBUG: Enemy 0: active=1 x=9.32 y=3.50[0m
+[0;32mI (48036) DEBUG: Enemy 0: active=1 x=9.34 y=3.50[0m
+[0;32mI (48166) DEBUG: Enemy 0: active=1 x=9.36 y=3.50[0m
+[0;32mI (48296) DEBUG: Enemy 0: active=1 x=9.38 y=3.50[0m
+[0;32mI (48426) DEBUG: Enemy 0: active=1 x=9.40 y=3.50[0m
+[0;32mI (48556) DEBUG: Enemy 0: active=1 x=9.42 y=3.50[0m
+[0;32mI (48686) DEBUG: Enemy 0: active=1 x=9.44 y=3.50[0m
+[0;32mI (48816) DEBUG: Enemy 0: active=1 x=9.46 y=3.50[0m
+[0;32mI (48946) DEBUG: Enemy 0: active=1 x=9.48 y=3.50[0m
+[0;32mI (49076) DEBUG: Enemy 0: active=1 x=9.50 y=3.50[0m
+[0;32mI (49206) DEBUG: Enemy 0: active=1 x=9.52 y=3.50[0m
+[0;32mI (49336) DEBUG: Enemy 0: active=1 x=9.54 y=3.50[0m
+[0;32mI (49466) DEBUG: Enemy 0: active=1 x=9.56 y=3.50[0m
+[0;32mI (49596) DEBUG: Enemy 0: active=1 x=9.58 y=3.50[0m
+[0;32mI (49726) DEBUG: Enemy 0: active=1 x=9.60 y=3.50[0m
+[0;32mI (49856) DEBUG: Enemy 0: active=1 x=9.62 y=3.50[0m
+[0;32mI (49986) DEBUG: Enemy 0: active=1 x=9.64 y=3.50[0m
+[0;32mI (50116) DEBUG: Enemy 0: active=1 x=9.66 y=3.50[0m
+[0;32mI (50246) DEBUG: Enemy 0: active=1 x=9.68 y=3.50[0m
+[0;32mI (50376) DEBUG: Enemy 0: active=1 x=9.70 y=3.50[0m
+[0;32mI (50506) DEBUG: Enemy 0: active=1 x=9.72 y=3.50[0m
+[0;32mI (50636) DEBUG: Enemy 0: active=1 x=9.74 y=3.50[0m
+[0;32mI (50766) DEBUG: Enemy 0: active=1 x=9.76 y=3.50[0m
+[0;32mI (50896) DEBUG: Enemy 0: active=1 x=9.78 y=3.50[0m
+[0;32mI (51026) DEBUG: Enemy 0: active=1 x=9.80 y=3.50[0m
+[0;32mI (51156) DEBUG: Enemy 0: active=1 x=9.82 y=3.50[0m
+[0;32mI (51286) DEBUG: Enemy 0: active=1 x=9.84 y=3.50[0m
+[0;32mI (51416) DEBUG: Enemy 0: active=1 x=9.86 y=3.50[0m
+[0;32mI (51546) DEBUG: Enemy 0: active=1 x=9.88 y=3.50[0m
+[0;32mI (51676) DEBUG: Enemy 0: active=1 x=9.90 y=3.50[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.3 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar 22 2026 11:10:24[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0bd84h ( 48516) map[0m
+[0;32mI (103) esp_image: segment 1: paddr=0001bdac vaddr=3ffb0000 size=02874h ( 10356) load[0m
+[0;32mI (107) esp_image: segment 2: paddr=0001e628 vaddr=40080000 size=019f0h (  6640) load[0m
+[0;32mI (110) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=16df4h ( 93684) map[0m
+[0;32mI (146) esp_image: segment 4: paddr=00036e1c vaddr=400819f0 size=0c9ech ( 51692) load[0m
+[0;32mI (167) esp_image: segment 5: paddr=00043810 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (174) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (174) boot: Disabling RNG early entropy source...[0m
+[0;32mI (185) cpu_start: Multicore app[0m
+[0;32mI (193) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (193) cpu_start: Pro cpu start user code[0m
+[0;32mI (193) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (195) app_init: Application information:[0m
+[0;32mI (199) app_init: Project name:     doom_esp32[0m
+[0;32mI (203) app_init: App version:      1[0m
+[0;32mI (206) app_init: Compile time:     Mar 22 2026 11:07:31[0m
+[0;32mI (212) app_init: ELF file SHA256:  ca294e4c2...[0m
+[0;32mI (216) app_init: ESP-IDF:          v5.5.3[0m
+[0;32mI (220) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (224) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (228) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (232) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (238) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (243) heap_init: At 3FFB35D0 len 0002CA30 (178 KiB): DRAM[0m
+[0;32mI (248) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (253) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (259) heap_init: At 4008E3DC len 00011C24 (71 KiB): IRAM[0m
+[0;33mW (265) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (277) spi_flash: detected chip: generic[0m
+[0;32mI (281) spi_flash: flash io: dio[0m
+[0;33mW (284) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (296) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (306) main_task: Started on CPU0[0m
+[0;32mI (316) main_task: Calling app_main()[0m
+[0;32mI (576) DEBUG: Spawn Check: active=1[0m
+[0;32mI (9296) DEBUG: Enemy 0: active=1 x=3.52 y=3.50[0m
+[0;32mI (9426) DEBUG: Enemy 0: active=1 x=3.54 y=3.50[0m
+[0;32mI (9556) DEBUG: Enemy 0: active=1 x=3.56 y=3.50[0m
+[0;32mI (9686) DEBUG: Enemy 0: active=1 x=3.58 y=3.50[0m
+[0;32mI (9816) DEBUG: Enemy 0: active=1 x=3.60 y=3.50[0m
+[0;32mI (9946) DEBUG: Enemy 0: active=1 x=3.62 y=3.50[0m
+[0;32mI (10076) DEBUG: Enemy 0: active=1 x=3.64 y=3.50[0m
+[0;32mI (10206) DEBUG: Enemy 0: active=1 x=3.66 y=3.50[0m
+[0;32mI (10336) DEBUG: Enemy 0: active=1 x=3.68 y=3.50[0m
+[0;32mI (10466) DEBUG: Enemy 0: active=1 x=3.70 y=3.50[0m
+[0;32mI (10596) DEBUG: Enemy 0: active=1 x=3.72 y=3.50[0m
+[0;32mI (10726) DEBUG: Enemy 0: active=1 x=3.74 y=3.50[0m
+[0;32mI (10856) DEBUG: Enemy 0: active=1 x=3.76 y=3.50[0m
+[0;32mI (10986) DEBUG: Enemy 0: active=1 x=3.78 y=3.50[0m
+[0;32mI (11116) DEBUG: Enemy 0: active=1 x=3.80 y=3.50[0m
+[0;32mI (11246) DEBUG: Enemy 0: active=1 x=3.82 y=3.50[0m
+[0;32mI (11376) DEBUG: Enemy 0: active=1 x=3.84 y=3.50[0m
+[0;32mI (11506) DEBUG: Enemy 0: active=1 x=3.86 y=3.50[0m
+[0;32mI (11636) DEBUG: Enemy 0: active=1 x=3.88 y=3.50[0m
+[0;32mI (11766) DEBUG: Enemy 0: active=1 x=3.90 y=3.50[0m
+[0;32mI (11896) DEBUG: Enemy 0: active=1 x=3.92 y=3.50[0m
+[0;32mI (12026) DEBUG: Enemy 0: active=1 x=3.94 y=3.50[0m
+[0;32mI (12156) DEBUG: Enemy 0: active=1 x=3.96 y=3.50[0m
+[0;32mI (12286) DEBUG: Enemy 0: active=1 x=3.98 y=3.50[0m
+[0;32mI (12416) DEBUG: Enemy 0: active=1 x=4.00 y=3.50[0m
+[0;32mI (12546) DEBUG: Enemy 0: active=1 x=4.02 y=3.50[0m
+[0;32mI (12676) DEBUG: Enemy 0: active=1 x=4.04 y=3.50[0m
+[0;32mI (12806) DEBUG: Enemy 0: active=1 x=4.06 y=3.50[0m
+[0;32mI (12936) DEBUG: Enemy 0: active=1 x=4.08 y=3.50[0m
+[0;32mI (13066) DEBUG: Enemy 0: active=1 x=4.10 y=3.50[0m
+[0;32mI (13196) DEBUG: Enemy 0: active=1 x=4.12 y=3.50[0m
+[0;32mI (13326) DEBUG: Enemy 0: active=1 x=4.14 y=3.50[0m
+[0;32mI (13456) DEBUG: Enemy 0: active=1 x=4.16 y=3.50[0m
+[0;32mI (13586) DEBUG: Enemy 0: active=1 x=4.18 y=3.50[0m
+[0;32mI (13716) DEBUG: Enemy 0: active=1 x=4.20 y=3.50[0m
+[0;32mI (13846) DEBUG: Enemy 0: active=1 x=4.22 y=3.50[0m
+[0;32mI (13976) DEBUG: Enemy 0: active=1 x=4.24 y=3.50[0m
+[0;32mI (14106) DEBUG: Enemy 0: active=1 x=4.26 y=3.50[0m
+[0;32mI (14236) DEBUG: Enemy 0: active=1 x=4.28 y=3.50[0m
+[0;32mI (14366) DEBUG: Enemy 0: active=1 x=4.30 y=3.50[0m
+[0;32mI (14496) DEBUG: Enemy 0: active=1 x=4.32 y=3.50[0m
+[0;32mI (14626) DEBUG: Enemy 0: active=1 x=4.34 y=3.50[0m
+[0;32mI (14756) DEBUG: Enemy 0: active=1 x=4.36 y=3.50[0m
+[0;32mI (14886) DEBUG: Enemy 0: active=1 x=4.38 y=3.50[0m
+[0;32mI (15016) DEBUG: Enemy 0: active=1 x=4.40 y=3.50[0m
+[0;32mI (15146) DEBUG: Enemy 0: active=1 x=4.42 y=3.50[0m
+[0;32mI (15276) DEBUG: Enemy 0: active=1 x=4.44 y=3.50[0m
+[0;32mI (15406) DEBUG: Enemy 0: active=1 x=4.46 y=3.50[0m
+[0;32mI (15536) DEBUG: Enemy 0: active=1 x=4.48 y=3.50[0m
+[0;32mI (15666) DEBUG: Enemy 0: active=1 x=4.50 y=3.50[0m
+[0;32mI (15796) DEBUG: Enemy 0: active=1 x=4.52 y=3.50[0m
+[0;32mI (15926) DEBUG: Enemy 0: active=1 x=4.54 y=3.50[0m
+[0;32mI (16056) DEBUG: Enemy 0: active=1 x=4.56 y=3.50[0m
+[0;32mI (16186) DEBUG: Enemy 0: active=1 x=4.58 y=3.50[0m
+[0;32mI (16316) DEBUG: Enemy 0: active=1 x=4.60 y=3.50[0m
+[0;32mI (16446) DEBUG: Enemy 0: active=1 x=4.62 y=3.50[0m
+[0;32mI (16576) DEBUG: Enemy 0: active=1 x=4.64 y=3.50[0m
+[0;32mI (16706) DEBUG: Enemy 0: active=1 x=4.66 y=3.50[0m
+[0;32mI (16836) DEBUG: Enemy 0: active=1 x=4.68 y=3.50[0m
+[0;32mI (16966) DEBUG: Enemy 0: active=1 x=4.70 y=3.50[0m
+[0;32mI (17096) DEBUG: Enemy 0: active=1 x=4.72 y=3.50[0m
+[0;32mI (17226) DEBUG: Enemy 0: active=1 x=4.74 y=3.50[0m
+[0;32mI (17356) DEBUG: Enemy 0: active=1 x=4.76 y=3.50[0m
+[0;32mI (17486) DEBUG: Enemy 0: active=1 x=4.78 y=3.50[0m
+[0;32mI (17616) DEBUG: Enemy 0: active=1 x=4.80 y=3.50[0m
+[0;32mI (17746) DEBUG: Enemy 0: active=1 x=4.82 y=3.50[0m
+[0;32mI (17876) DEBUG: Enemy 0: active=1 x=4.84 y=3.50[0m
+[0;32mI (18006) DEBUG: Enemy 0: active=1 x=4.86 y=3.50[0m
+[0;32mI (18136) DEBUG: Enemy 0: active=1 x=4.88 y=3.50[0m
+[0;32mI (18266) DEBUG: Enemy 0: active=1 x=4.90 y=3.50[0m
+[0;32mI (18396) DEBUG: Enemy 0: active=1 x=4.92 y=3.50[0m
+[0;32mI (18526) DEBUG: Enemy 0: active=1 x=4.94 y=3.50[0m
+[0;32mI (18656) DEBUG: Enemy 0: active=1 x=4.96 y=3.50[0m
+[0;32mI (18786) DEBUG: Enemy 0: active=1 x=4.98 y=3.50[0m
+[0;32mI (18916) DEBUG: Enemy 0: active=1 x=5.00 y=3.50[0m
+[0;32mI (19046) DEBUG: Enemy 0: active=1 x=5.02 y=3.50[0m
+[0;32mI (19176) DEBUG: Enemy 0: active=1 x=5.04 y=3.50[0m
+[0;32mI (19306) DEBUG: Enemy 0: active=1 x=5.06 y=3.50[0m
+[0;32mI (19436) DEBUG: Enemy 0: active=1 x=5.08 y=3.50[0m
+[0;32mI (19566) DEBUG: Enemy 0: active=1 x=5.10 y=3.50[0m
+[0;32mI (19696) DEBUG: Enemy 0: active=1 x=5.12 y=3.50[0m
+[0;32mI (19826) DEBUG: Enemy 0: active=1 x=5.14 y=3.50[0m
+[0;32mI (19956) DEBUG: Enemy 0: active=1 x=5.16 y=3.50[0m
+[0;32mI (20086) DEBUG: Enemy 0: active=1 x=5.18 y=3.50[0m
+[0;32mI (20216) DEBUG: Enemy 0: active=1 x=5.20 y=3.50[0m
+[0;32mI (20346) DEBUG: Enemy 0: active=1 x=5.22 y=3.50[0m
+[0;32mI (20476) DEBUG: Enemy 0: active=1 x=5.24 y=3.50[0m
+[0;32mI (20606) DEBUG: Enemy 0: active=1 x=5.26 y=3.50[0m
+[0;32mI (20736) DEBUG: Enemy 0: active=1 x=5.28 y=3.50[0m
+[0;32mI (20866) DEBUG: Enemy 0: active=1 x=5.30 y=3.50[0m
+[0;32mI (20996) DEBUG: Enemy 0: active=1 x=5.32 y=3.50[0m
+[0;32mI (21126) DEBUG: Enemy 0: active=1 x=5.34 y=3.50[0m
+[0;32mI (21256) DEBUG: Enemy 0: active=1 x=5.36 y=3.50[0m
+[0;32mI (21386) DEBUG: Enemy 0: active=1 x=5.38 y=3.50[0m
+[0;32mI (21516) DEBUG: Enemy 0: active=1 x=5.40 y=3.50[0m
+[0;32mI (21646) DEBUG: Enemy 0: active=1 x=5.42 y=3.50[0m
+[0;32mI (21776) DEBUG: Enemy 0: active=1 x=5.44 y=3.50[0m
+[0;32mI (21906) DEBUG: Enemy 0: active=1 x=5.46 y=3.50[0m
+[0;32mI (22036) DEBUG: Enemy 0: active=1 x=5.48 y=3.50[0m
+[0;32mI (22166) DEBUG: Enemy 0: active=1 x=5.50 y=3.50[0m
+[0;32mI (22296) DEBUG: Enemy 0: active=1 x=5.52 y=3.50[0m
+[0;32mI (22426) DEBUG: Enemy 0: active=1 x=5.54 y=3.50[0m
+[0;32mI (22556) DEBUG: Enemy 0: active=1 x=5.56 y=3.50[0m
+[0;32mI (22686) DEBUG: Enemy 0: active=1 x=5.58 y=3.50[0m
+[0;32mI (22816) DEBUG: Enemy 0: active=1 x=5.60 y=3.50[0m
+[0;32mI (22946) DEBUG: Enemy 0: active=1 x=5.62 y=3.50[0m
+[0;32mI (23076) DEBUG: Enemy 0: active=1 x=5.64 y=3.50[0m
+[0;32mI (23206) DEBUG: Enemy 0: active=1 x=5.66 y=3.50[0m
+[0;32mI (23336) DEBUG: Enemy 0: active=1 x=5.68 y=3.50[0m
+[0;32mI (23466) DEBUG: Enemy 0: active=1 x=5.70 y=3.50[0m
+[0;32mI (23596) DEBUG: Enemy 0: active=1 x=5.72 y=3.50[0m
+[0;32mI (23726) DEBUG: Enemy 0: active=1 x=5.74 y=3.50[0m
+[0;32mI (23856) DEBUG: Enemy 0: active=1 x=5.76 y=3.50[0m
+[0;32mI (23986) DEBUG: Enemy 0: active=1 x=5.78 y=3.50[0m
+[0;32mI (24116) DEBUG: Enemy 0: active=1 x=5.80 y=3.50[0m
+[0;32mI (24246) DEBUG: Enemy 0: active=1 x=5.82 y=3.50[0m
+[0;32mI (24376) DEBUG: Enemy 0: active=1 x=5.84 y=3.50[0m
+[0;32mI (24506) DEBUG: Enemy 0: active=1 x=5.86 y=3.50[0m
+[0;32mI (24636) DEBUG: Enemy 0: active=1 x=5.88 y=3.50[0m
+[0;32mI (24766) DEBUG: Enemy 0: active=1 x=5.90 y=3.50[0m
+[0;32mI (24896) DEBUG: Enemy 0: active=1 x=5.92 y=3.50[0m
+[0;32mI (25026) DEBUG: Enemy 0: active=1 x=5.94 y=3.50[0m
+[0;32mI (25156) DEBUG: Enemy 0: active=1 x=5.96 y=3.50[0m
+[0;32mI (25286) DEBUG: Enemy 0: active=1 x=5.98 y=3.50[0m
+[0;32mI (25416) DEBUG: Enemy 0: active=1 x=6.00 y=3.50[0m
+[0;32mI (25546) DEBUG: Enemy 0: active=1 x=6.02 y=3.50[0m
+[0;32mI (25676) DEBUG: Enemy 0: active=1 x=6.04 y=3.50[0m
+[0;32mI (25806) DEBUG: Enemy 0: active=1 x=6.06 y=3.50[0m
+[0;32mI (25936) DEBUG: Enemy 0: active=1 x=6.08 y=3.50[0m
+[0;32mI (26066) DEBUG: Enemy 0: active=1 x=6.10 y=3.50[0m
+[0;32mI (26196) DEBUG: Enemy 0: active=1 x=6.12 y=3.50[0m
+[0;32mI (26326) DEBUG: Enemy 0: active=1 x=6.14 y=3.50[0m
+[0;32mI (26456) DEBUG: Enemy 0: active=1 x=6.16 y=3.50[0m
+[0;32mI (26586) DEBUG: Enemy 0: active=1 x=6.18 y=3.50[0m
+[0;32mI (26716) DEBUG: Enemy 0: active=1 x=6.20 y=3.50[0m
+[0;32mI (26846) DEBUG: Enemy 0: active=1 x=6.22 y=3.50[0m
+[0;32mI (26976) DEBUG: Enemy 0: active=1 x=6.24 y=3.50[0m
+[0;32mI (27106) DEBUG: Enemy 0: active=1 x=6.26 y=3.50[0m
+[0;32mI (27236) DEBUG: Enemy 0: active=1 x=6.28 y=3.50[0m
+[0;32mI (27366) DEBUG: Enemy 0: active=1 x=6.30 y=3.50[0m
+[0;32mI (27496) DEBUG: Enemy 0: active=1 x=6.32 y=3.50[0m
+[0;32mI (27626) DEBUG: Enemy 0: active=1 x=6.34 y=3.50[0m
+[0;32mI (27756) DEBUG: Enemy 0: active=1 x=6.36 y=3.50[0m
+[0;32mI (27886) DEBUG: Enemy 0: active=1 x=6.38 y=3.50[0m
+[0;32mI (28016) DEBUG: Enemy 0: active=1 x=6.40 y=3.50[0m
+[0;32mI (28146) DEBUG: Enemy 0: active=1 x=6.42 y=3.50[0m
+[0;32mI (28276) DEBUG: Enemy 0: active=1 x=6.44 y=3.50[0m
+[0;32mI (28406) DEBUG: Enemy 0: active=1 x=6.46 y=3.50[0m
+[0;32mI (28536) DEBUG: Enemy 0: active=1 x=6.48 y=3.50[0m
+[0;32mI (28666) DEBUG: Enemy 0: active=1 x=6.50 y=3.50[0m
+[0;32mI (28796) DEBUG: Enemy 0: active=1 x=6.52 y=3.50[0m
+[0;32mI (28926) DEBUG: Enemy 0: active=1 x=6.54 y=3.50[0m
+[0;32mI (29056) DEBUG: Enemy 0: active=1 x=6.56 y=3.50[0m
+[0;32mI (29186) DEBUG: Enemy 0: active=1 x=6.58 y=3.50[0m
+[0;32mI (29316) DEBUG: Enemy 0: active=1 x=6.60 y=3.50[0m
+[0;32mI (29446) DEBUG: Enemy 0: active=1 x=6.62 y=3.50[0m
+[0;32mI (29576) DEBUG: Enemy 0: active=1 x=6.64 y=3.50[0m
+[0;32mI (29706) DEBUG: Enemy 0: active=1 x=6.66 y=3.50[0m
+[0;32mI (29836) DEBUG: Enemy 0: active=1 x=6.68 y=3.50[0m
+[0;32mI (29966) DEBUG: Enemy 0: active=1 x=6.70 y=3.50[0m
+[0;32mI (30096) DEBUG: Enemy 0: active=1 x=6.72 y=3.50[0m
+[0;32mI (30226) DEBUG: Enemy 0: active=1 x=6.74 y=3.50[0m
+[0;32mI (30356) DEBUG: Enemy 0: active=1 x=6.76 y=3.50[0m
+[0;32mI (30486) DEBUG: Enemy 0: active=1 x=6.78 y=3.50[0m
+[0;32mI (30616) DEBUG: Enemy 0: active=1 x=6.80 y=3.50[0m
+[0;32mI (30746) DEBUG: Enemy 0: active=1 x=6.82 y=3.50[0m
+[0;32mI (30876) DEBUG: Enemy 0: active=1 x=6.84 y=3.50[0m
+[0;32mI (31006) DEBUG: Enemy 0: active=1 x=6.86 y=3.50[0m
+[0;32mI (31136) DEBUG: Enemy 0: active=1 x=6.88 y=3.50[0m
+[0;32mI (31266) DEBUG: Enemy 0: active=1 x=6.90 y=3.50[0m
+[0;32mI (31396) DEBUG: Enemy 0: active=1 x=6.92 y=3.50[0m
+[0;32mI (31526) DEBUG: Enemy 0: active=1 x=6.94 y=3.50[0m
+[0;32mI (31656) DEBUG: Enemy 0: active=1 x=6.96 y=3.50[0m
+[0;32mI (31786) DEBUG: Enemy 0: active=1 x=6.98 y=3.50[0m
+[0;32mI (31916) DEBUG: Enemy 0: active=1 x=7.00 y=3.50[0m
+[0;32mI (32046) DEBUG: Enemy 0: active=1 x=7.02 y=3.50[0m
+[0;32mI (32176) DEBUG: Enemy 0: active=1 x=7.04 y=3.50[0m
+[0;32mI (32306) DEBUG: Enemy 0: active=1 x=7.06 y=3.50[0m
+[0;32mI (32436) DEBUG: Enemy 0: active=1 x=7.08 y=3.50[0m
