@@ -15,4 +15,4 @@ Merged 2 ELF sections
 Successfully created esp32 image.
 Generated C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/doom_esp32.bin
 [9/9] C:\WINDOWS\system32\cmd.exe /C "cd /D "C:\Users\Sukhraj Singh\Desktop\doom_esp32\build\esp-idf\esptool_py" && C:\Espressif\tools\python\v5.5.3\venv\Scripts\python.exe C:/esp/v5.5.3/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/partition_table/partition-table.bin" "C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/doom_esp32.bin""
-doom_esp32.bin binary size 0x33e10 bytes. Smallest app partition is 0x100000 bytes. 0xcc1f0 bytes (80%) free.
+doom_esp32.bin binary size 0x33e20 bytes. Smallest app partition is 0x100000 bytes. 0xcc1e0 bytes (80%) free.

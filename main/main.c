@@ -6,13 +6,14 @@
 #include "driver/i2c.h"
 #include "lcd.h"
 #include "esp_log.h"
+#include "esp_timer.h"
 
 // Display config for the SH1106 OLED
 
 #define I2C_MASTER_SCL_IO    22
 #define I2C_MASTER_SDA_IO    21
 #define I2C_MASTER_NUM       I2C_NUM_0
-#define I2C_MASTER_FREQ_HZ   400000
+#define I2C_MASTER_FREQ_HZ   1000000
 #define SH1106_ADDR          0x3C
 #define SH1106_WIDTH         128
 #define SH1106_HEIGHT        64
@@ -44,6 +45,13 @@
 #define MAX_ENEMIES 8
 #define ENEMY_SPEED 0.05f
 
+// FPS counter
+static int frame_counter;
+static int64_t time_stamp;
+static int last_fps;
+
+// z-buffer
+static float zbuffer[SH1106_WIDTH];
 
 // Map (1 = wall, 0 = empty)
 static const int map[map_H][map_W] = {
@@ -106,6 +114,7 @@ struct enemy {
     float x, y;
     int health;
     int active; // 1 = alive, 0 = dead/inactive
+    int damage_tick;
 };
 
 struct enemy enemies[MAX_ENEMIES];
@@ -124,16 +133,17 @@ void enemies_update(struct player_stats *stats) {
     for (int i = 0; i < MAX_ENEMIES; i++) {
         if (enemies[i].active == 1) {
 
-            // Direction vector to player
             float dx = player.x - enemies[i].x;
             float dy = player.y - enemies[i].y;
 
-            float len = sqrt(dx * dx + dy * dy);
-            
-            // Normalize (unit vector)
-            dx = dx / len;
-            dy = dy / len;
+            float len = sqrtf(dx * dx + dy * dy);
 
+            if (len > 0.0001f) {
+                float inv = 1.0f / len;
+                dx *= inv;
+                dy *= inv;
+            }
+            
             // Attempt movement
             float nx = enemies[i].x + dx * ENEMY_SPEED;
             float ny = enemies[i].y + dy * ENEMY_SPEED;
@@ -149,17 +159,22 @@ void enemies_update(struct player_stats *stats) {
             }
 
             // Damage tick (prevents instant rapid damage)
-            static int damage_tick = 0;
-            damage_tick++;
+            enemies[i].damage_tick++;
 
-            float dist_to_player = sqrtf(powf(player.x - enemies[i].x , 2) + powf(player.y - enemies[i].y, 2));
+            float dist_sq = dx * dx + dy * dy;
+            float len = sqrtf(dist_sq);
+
+            if (dist_sq < (0.5f * 0.5f)) {
+                // deal damage
+            }
 
             // If close to player, deal damage to them
-            if (dist_to_player < 0.5f && damage_tick >= 10) {
+            if (dist_sq < (0.5f * 0.5f) && enemies[i].damage_tick >= 10) {
                 stats -> health -= 10;
+
                 if (stats -> health < 0) {
                     stats -> health = 0;
-                    damage_tick = 0;
+                    enemies[i].damage_tick = 0;
                 }
             }
         }
@@ -237,7 +252,7 @@ static void set_pixel(uint8_t *buf, int x, int y, int on) {
     if (on)
         buf[(y / 8) * SH1106_WIDTH + x] |= (1 << (y % 8));
     else
-        buf[(y / 8) * SH1106_WIDTH + x] &= (1 << (y % 8));
+        buf[(y / 8) * SH1106_WIDTH + x] &= ~(1 << (y % 8));
 }
 
 // RENDERING (3D WALLS)
@@ -286,7 +301,7 @@ static void keypad_init(void) {
     for (int i = 0; i < 4; i++) {
         gpio_reset_pin(rows[i]);
         gpio_set_direction(rows[i], GPIO_MODE_OUTPUT);
-        gpio_set_level(rows[1], 1);
+        gpio_set_level(rows[i], 1);
     }
     // Cols as inputs with pull-up
     int cols[] = {COL1, COL2, COL3, COL4};
@@ -340,6 +355,9 @@ static void render(void) {
         // Remove fisheye distortion
         dist *= cosf(ray_angle - player.angle);
 
+        // Store Per Column
+        zbuffer[col] = dist;
+
         // Wall height — closer = taller
         int wall_h = (int)(SH1106_HEIGHT / (dist + 0.0001f));
         if (wall_h > SH1106_HEIGHT) wall_h = SH1106_HEIGHT;
@@ -361,16 +379,27 @@ void render_sprites(void) {
         while (angle_diff > M_PI) angle_diff -= 2 * M_PI;
         while (angle_diff < -M_PI) angle_diff += 2 * M_PI;
 
-        float dist_to_player = sqrtf(powf(player.x - enemies[i].x, 2) + powf(player.y - enemies[i].y, 2));
-
+        float dx = player.x - enemies[i].x;
+        float dy = player.y - enemies[i].y;
+        float dist_to_player = sqrtf(dx * dx + dy * dy);
+        
         int screen_x = (int)((angle_diff / FOV + 0.5f) * SH1106_WIDTH);
-        if (enemies[i].active == 1 && screen_x >= 0 && screen_x < SH1106_WIDTH) {
-            int sprite_height = (int)(SH1106_HEIGHT/ dist_to_player);
+        if (enemies[i].active == 1 && screen_x >= 0 && screen_x < SH1106_WIDTH && dist_to_player < zbuffer[screen_x]) {
+            int sprite_height = (int)(SH1106_HEIGHT / dist_to_player);
+            int sprite_width  = sprite_height / 2;
 
             int y0 = (SH1106_HEIGHT / 2) - (sprite_height / 2);
             int y1 = (SH1106_HEIGHT / 2) + (sprite_height / 2);
 
-            draw_vline_shaded(buffer, screen_x, y0, y1, dist_to_player);
+            for (int x = -sprite_width / 2; x <= sprite_width / 2; x++) {
+                int draw_x = screen_x + x;
+
+                if (draw_x < 0 || draw_x >= SH1106_WIDTH) continue;
+
+                if (dist_to_player < zbuffer[draw_x]) {
+                    draw_vline_shaded(buffer, draw_x, y0, y1, dist_to_player);
+                }
+            }
         }
     }
 }
@@ -454,14 +483,14 @@ static void render_automap(void) {
 }
 
 
-void lcd_update_hud(struct player_stats *stats) {
+void lcd_update_hud(struct player_stats *stats, int fps) {
     lcd_send_byte(0x80, 0);
     char buf[16];
     sprintf(buf, "HP:%-3d AR:%-3d", stats -> health, stats -> armor);
     lcd_print(buf);
 
     lcd_send_byte(0xC0, 0);
-    sprintf(buf, "AM:%-3d", stats -> ammo);
+    sprintf(buf, "AM:%-3d FPS:%-3d", stats -> ammo, fps);
     lcd_print(buf);
 }
 
@@ -476,13 +505,18 @@ float cast_shoot_ray(void) {
 
         for (int i = 0; i < MAX_ENEMIES; i++) {
             if (enemies[i].active ==1) {
-                float dist_to_enemy = sqrtf(powf(enemies[i].x - rx, 2) + powf(enemies[i].y - ry, 2));
-                if (dist_to_enemy < 0.4f) {
+                float dx = enemies[i].x - rx;
+                float dy = enemies[i].y - ry;
+
+                if ((dx * dx + dy * dy) < (0.4f * 0.4f)) {
                     enemies[i].health -= 25;
+                
+
                     if (enemies[i].health <= 0) {
                         enemies[i].active = 0;
                     }
-                    return dist;
+                    
+                    return dist; //stop ray
                 }
             }
         }
@@ -502,11 +536,11 @@ static void handle_input(struct player_stats *stats) {
     float nx, ny;
 
     // Sprint Modifier - 1 held
-    int sprinting = key_pressed(ROW4, COL4);
+    int sprinting = key_pressed(ROW1, COL1);
     float speed = sprinting ? MOVE_SPEED * 2.0f : MOVE_SPEED;
 
     // Forward - 2
-    if (key_pressed(ROW3, COL4)) {
+    if (key_pressed(ROW1, COL2)) {
         nx = player.x + cosf(player.angle) * speed;
         ny = player.y + sinf(player.angle) * speed;
         if (map[(int)ny][(int)nx] == 0) {
@@ -516,7 +550,7 @@ static void handle_input(struct player_stats *stats) {
     }
 
     // Backward - 5
-    if (key_pressed(ROW3, COL3)) {
+    if (key_pressed(ROW2, COL2)) {
         nx = player.x - cosf(player.angle) * speed;
         ny = player.y - sinf(player.angle) * speed;
         if (map[(int)ny][(int)nx] == 0) {
@@ -526,7 +560,7 @@ static void handle_input(struct player_stats *stats) {
     }
 
     // Turn left - 4
-    if (key_pressed(ROW4, COL3)) {
+    if (key_pressed(ROW2, COL1)) {
         player.angle -= TURN_SPEED;
     }
 
@@ -541,7 +575,7 @@ static void handle_input(struct player_stats *stats) {
     }*/
 
     // Shoot - A (placeholder for now)
-    if (key_pressed(ROW1, COL4)) {
+    if (key_pressed(ROW4, COL2)) {
         if (stats -> ammo > 0) {
            stats -> ammo --;
             cast_shoot_ray();
@@ -549,7 +583,7 @@ static void handle_input(struct player_stats *stats) {
     }
 
     // Map toggle - D (edge triggered, not held)
-    int map_btn = key_pressed(ROW1, COL1);
+    int map_btn = key_pressed(ROW4, COL1);
     if (map_btn && !prev_map_btn)
         show_map = !show_map;
     prev_map_btn = map_btn;
@@ -572,11 +606,12 @@ void app_main(void) {
     struct player_stats stats = {100, 0, 50};
 
     while (1){
+        frame_counter++;
         handle_input(&stats);
 
         static int enemy_tick = 0;
         enemy_tick++;
-        if (enemy_tick >= 3.5) {
+        if (enemy_tick >= 3) {
             enemies_update(&stats);
             enemy_tick = 0;
         }
@@ -587,9 +622,16 @@ void app_main(void) {
             render();
             render_sprites();
             sh1106_draw(buffer);
-            lcd_update_hud(&stats);
+            // lcd_update_hud(&stats, last_fps);
         }
-        vTaskDelay(pdMS_TO_TICKS(33));
+        int64_t now = esp_timer_get_time();
+        if (now - time_stamp >= 1000000) {
+            last_fps = frame_counter;
+            frame_counter = 0;
+            time_stamp = now;
+            lcd_update_hud(&stats, last_fps); 
+        }
+        vTaskDelay(pdMS_TO_TICKS(16));
     }
 }
 

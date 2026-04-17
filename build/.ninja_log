@@ -1440,3 +1440,441 @@
 687	834	7961180289698171	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
 834	7005	7961180289784360	CMakeFiles/flash	b1ad51c3f7cbaa34
 834	7005	7961180289784360	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/flash	b1ad51c3f7cbaa34
+354	911	7962853579850207	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+354	911	7962853579850207	bootloader/bootloader.elf	fcc911544571a469
+354	911	7962853579850207	bootloader/bootloader.bin	fcc911544571a469
+354	911	7962853579850207	bootloader/bootloader.map	fcc911544571a469
+354	911	7962853579850207	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+354	911	7962853579850207	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+354	911	7962853579850207	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+354	911	7962853579850207	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+913	1030	7962853585310053	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+913	1030	7962853585310053	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+1030	1252	7962853588645955	CMakeFiles/bootloader-complete	396c086da913885e
+1030	1252	7962853588645955	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+1030	1252	7962853588645955	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+1030	1252	7962853588645955	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+230	688	7962854228510810	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+230	688	7962854228510810	bootloader/bootloader.elf	fcc911544571a469
+230	688	7962854228510810	bootloader/bootloader.bin	fcc911544571a469
+230	688	7962854228510810	bootloader/bootloader.map	fcc911544571a469
+230	688	7962854228510810	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+230	688	7962854228510810	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+230	688	7962854228510810	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+230	688	7962854228510810	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+689	775	7962854233100165	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+689	775	7962854233100165	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+775	965	7962854235765406	CMakeFiles/bootloader-complete	396c086da913885e
+775	965	7962854235765406	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+775	965	7962854235765406	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+775	965	7962854235765406	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+223	603	7962855108760867	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+223	603	7962855108760867	bootloader/bootloader.elf	fcc911544571a469
+223	603	7962855108760867	bootloader/bootloader.bin	fcc911544571a469
+223	603	7962855108760867	bootloader/bootloader.map	fcc911544571a469
+223	603	7962855108760867	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+223	603	7962855108760867	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+223	603	7962855108760867	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+223	603	7962855108760867	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+604	877	7962855112451119	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+604	877	7962855112451119	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+877	1055	7962855116954537	CMakeFiles/bootloader-complete	396c086da913885e
+877	1055	7962855116954537	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+877	1055	7962855116954537	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+877	1055	7962855116954537	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+212	1667	7962855108651146	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	ec349e0d6a0e8a28
+1668	2146	7962855123219661	esp-idf/main/libmain.a	39eda75dd155529f
+2146	22157	7962855327303536	esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+2146	22157	7962855327303536	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+22157	24564	7962855328083908	doom_esp32.elf	6e8614449674f541
+24564	25102	7962855357493533	.bin_timestamp	76c299abd1065270
+24564	25102	7962855357493533	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/.bin_timestamp	76c299abd1065270
+25102	25280	7962855357553433	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+25102	25280	7962855357553433	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+260	504	7962856254080037	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+260	504	7962856254080037	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+250	605	7962856253969742	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+250	605	7962856253969742	bootloader/bootloader.elf	fcc911544571a469
+250	605	7962856253969742	bootloader/bootloader.bin	fcc911544571a469
+250	605	7962856253969742	bootloader/bootloader.map	fcc911544571a469
+250	605	7962856253969742	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+250	605	7962856253969742	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+250	605	7962856253969742	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+250	605	7962856253969742	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+605	666	7962856257525056	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+605	666	7962856257525056	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+666	843	7962856259658380	CMakeFiles/bootloader-complete	396c086da913885e
+666	843	7962856259658380	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+666	843	7962856259658380	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+666	843	7962856259658380	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+844	6922	7962856259906503	CMakeFiles/flash	b1ad51c3f7cbaa34
+844	6922	7962856259906503	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/flash	b1ad51c3f7cbaa34
+232	616	7962858297742031	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+232	616	7962858297742031	bootloader/bootloader.elf	fcc911544571a469
+232	616	7962858297742031	bootloader/bootloader.bin	fcc911544571a469
+232	616	7962858297742031	bootloader/bootloader.map	fcc911544571a469
+232	616	7962858297742031	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+232	616	7962858297742031	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+232	616	7962858297742031	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+232	616	7962858297742031	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+617	724	7962858301519710	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+617	724	7962858301519710	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+724	893	7962858304249243	CMakeFiles/bootloader-complete	396c086da913885e
+724	893	7962858304249243	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+724	893	7962858304249243	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+724	893	7962858304249243	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+220	1189	7962858297550378	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	ec349e0d6a0e8a28
+1190	1359	7962858307324962	esp-idf/main/libmain.a	39eda75dd155529f
+1359	18053	7962858475107089	esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+1359	18053	7962858475107089	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+18054	19755	7962858475888478	doom_esp32.elf	6e8614449674f541
+19756	20281	7962858498001219	.bin_timestamp	76c299abd1065270
+19756	20281	7962858498001219	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/.bin_timestamp	76c299abd1065270
+20281	20453	7962858498190309	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+20281	20453	7962858498190309	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+248	518	7962859896255323	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+248	518	7962859896255323	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+238	615	7962859896149258	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+238	615	7962859896149258	bootloader/bootloader.elf	fcc911544571a469
+238	615	7962859896149258	bootloader/bootloader.bin	fcc911544571a469
+238	615	7962859896149258	bootloader/bootloader.map	fcc911544571a469
+238	615	7962859896149258	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+238	615	7962859896149258	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+238	615	7962859896149258	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+238	615	7962859896149258	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+616	682	7962859899890069	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+616	682	7962859899890069	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+682	819	7962859901869749	CMakeFiles/bootloader-complete	396c086da913885e
+682	819	7962859901869749	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+682	819	7962859901869749	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+682	819	7962859901869749	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+820	6881	7962859901891594	CMakeFiles/flash	b1ad51c3f7cbaa34
+820	6881	7962859901891594	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/flash	b1ad51c3f7cbaa34
+210	639	7962860447818102	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+210	639	7962860447818102	bootloader/bootloader.elf	fcc911544571a469
+210	639	7962860447818102	bootloader/bootloader.bin	fcc911544571a469
+210	639	7962860447818102	bootloader/bootloader.map	fcc911544571a469
+210	639	7962860447818102	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+210	639	7962860447818102	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+210	639	7962860447818102	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+210	639	7962860447818102	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+640	729	7962860452115533	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+640	729	7962860452115533	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+729	938	7962860454974942	CMakeFiles/bootloader-complete	396c086da913885e
+729	938	7962860454974942	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+729	938	7962860454974942	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+729	938	7962860454974942	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+198	1227	7962860447688867	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	ec349e0d6a0e8a28
+1228	1378	7962860457977310	esp-idf/main/libmain.a	39eda75dd155529f
+1378	17962	7962860624570085	esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+1378	17962	7962860624570085	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+17963	19621	7962860625195314	doom_esp32.elf	6e8614449674f541
+19622	20163	7962860647133363	.bin_timestamp	76c299abd1065270
+19622	20163	7962860647133363	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/.bin_timestamp	76c299abd1065270
+20163	20456	7962860647341895	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+20163	20456	7962860647341895	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+251	526	7962860928332052	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+251	526	7962860928332052	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+239	619	7962860928260018	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+239	619	7962860928260018	bootloader/bootloader.elf	fcc911544571a469
+239	619	7962860928260018	bootloader/bootloader.bin	fcc911544571a469
+239	619	7962860928260018	bootloader/bootloader.map	fcc911544571a469
+239	619	7962860928260018	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+239	619	7962860928260018	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+239	619	7962860928260018	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+239	619	7962860928260018	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+619	687	7962860932055681	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+619	687	7962860932055681	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+687	855	7962860934308156	CMakeFiles/bootloader-complete	396c086da913885e
+687	855	7962860934308156	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+687	855	7962860934308156	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+687	855	7962860934308156	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+855	6938	7962860934347167	CMakeFiles/flash	b1ad51c3f7cbaa34
+855	6938	7962860934347167	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/flash	b1ad51c3f7cbaa34
+234	808	7962862323957670	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+234	808	7962862323957670	bootloader/bootloader.elf	fcc911544571a469
+234	808	7962862323957670	bootloader/bootloader.bin	fcc911544571a469
+234	808	7962862323957670	bootloader/bootloader.map	fcc911544571a469
+234	808	7962862323957670	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+234	808	7962862323957670	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+234	808	7962862323957670	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+234	808	7962862323957670	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+809	910	7962862329554025	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+809	910	7962862329554025	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+910	1045	7962862331964654	CMakeFiles/bootloader-complete	396c086da913885e
+910	1045	7962862331964654	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+910	1045	7962862331964654	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+910	1045	7962862331964654	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+222	1310	7962862323733935	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	ec349e0d6a0e8a28
+1311	1570	7962862334728343	esp-idf/main/libmain.a	39eda75dd155529f
+1570	18473	7962862505591728	esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+1570	18473	7962862505591728	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+18473	20101	7962862506312945	doom_esp32.elf	6e8614449674f541
+20102	20630	7962862527703361	.bin_timestamp	76c299abd1065270
+20102	20630	7962862527703361	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/.bin_timestamp	76c299abd1065270
+20630	20797	7962862527913815	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+20630	20797	7962862527913815	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+262	493	7962862850304356	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+262	493	7962862850304356	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+252	580	7962862850197634	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+252	580	7962862850197634	bootloader/bootloader.elf	fcc911544571a469
+252	580	7962862850197634	bootloader/bootloader.bin	fcc911544571a469
+252	580	7962862850197634	bootloader/bootloader.map	fcc911544571a469
+252	580	7962862850197634	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+252	580	7962862850197634	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+252	580	7962862850197634	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+252	580	7962862850197634	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+581	643	7962862853448499	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+581	643	7962862853448499	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+643	799	7962862855581207	CMakeFiles/bootloader-complete	396c086da913885e
+643	799	7962862855581207	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+643	799	7962862855581207	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+643	799	7962862855581207	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+800	7333	7962862855677790	CMakeFiles/flash	b1ad51c3f7cbaa34
+800	7333	7962862855677790	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/flash	b1ad51c3f7cbaa34
+218	882	7962863992492185	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+218	882	7962863992492185	bootloader/bootloader.elf	fcc911544571a469
+218	882	7962863992492185	bootloader/bootloader.bin	fcc911544571a469
+218	882	7962863992492185	bootloader/bootloader.map	fcc911544571a469
+218	882	7962863992492185	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+218	882	7962863992492185	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+218	882	7962863992492185	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+218	882	7962863992492185	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+883	956	7962863999189976	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+883	956	7962863999189976	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+956	1085	7962864001201332	CMakeFiles/bootloader-complete	396c086da913885e
+956	1085	7962864001201332	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+956	1085	7962864001201332	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+956	1085	7962864001201332	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+206	1321	7962863992492185	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	ec349e0d6a0e8a28
+1322	1535	7962864003673589	esp-idf/main/libmain.a	39eda75dd155529f
+1535	18117	7962864170751492	esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+1535	18117	7962864170751492	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+18117	19760	7962864171532714	doom_esp32.elf	6e8614449674f541
+19761	20282	7962864193189160	.bin_timestamp	76c299abd1065270
+19761	20282	7962864193189160	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/.bin_timestamp	76c299abd1065270
+20282	20456	7962864193269117	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+20282	20456	7962864193269117	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+234	506	7962864394340207	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+234	506	7962864394340207	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+223	593	7962864394228631	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+223	593	7962864394228631	bootloader/bootloader.elf	fcc911544571a469
+223	593	7962864394228631	bootloader/bootloader.bin	fcc911544571a469
+223	593	7962864394228631	bootloader/bootloader.map	fcc911544571a469
+223	593	7962864394228631	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+223	593	7962864394228631	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+223	593	7962864394228631	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+223	593	7962864394228631	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+593	649	7962864397923374	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+593	649	7962864397923374	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+649	955	7962864401450533	CMakeFiles/bootloader-complete	396c086da913885e
+649	955	7962864401450533	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+649	955	7962864401450533	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+649	955	7962864401450533	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+955	7399	7962864401548505	CMakeFiles/flash	b1ad51c3f7cbaa34
+955	7399	7962864401548505	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/flash	b1ad51c3f7cbaa34
+222	597	7962865284054580	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+222	597	7962865284054580	bootloader/bootloader.elf	fcc911544571a469
+222	597	7962865284054580	bootloader/bootloader.bin	fcc911544571a469
+222	597	7962865284054580	bootloader/bootloader.map	fcc911544571a469
+222	597	7962865284054580	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+222	597	7962865284054580	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+222	597	7962865284054580	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+222	597	7962865284054580	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+598	680	7962865287782419	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+598	680	7962865287782419	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+680	885	7962865290572702	CMakeFiles/bootloader-complete	396c086da913885e
+680	885	7962865290572702	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+680	885	7962865290572702	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+680	885	7962865290572702	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+210	1208	7962865283810613	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	ec349e0d6a0e8a28
+1209	1362	7962865293787007	esp-idf/main/libmain.a	39eda75dd155529f
+1362	17854	7962865459481954	esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+1362	17854	7962865459481954	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+17854	19506	7962865460263158	doom_esp32.elf	6e8614449674f541
+19506	20031	7962865481938770	.bin_timestamp	76c299abd1065270
+19506	20031	7962865481938770	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/.bin_timestamp	76c299abd1065270
+20031	20202	7962865482141748	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+20031	20202	7962865482141748	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+251	516	7962865581401854	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+251	516	7962865581401854	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+240	614	7962865581292920	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+240	614	7962865581292920	bootloader/bootloader.elf	fcc911544571a469
+240	614	7962865581292920	bootloader/bootloader.bin	fcc911544571a469
+240	614	7962865581292920	bootloader/bootloader.map	fcc911544571a469
+240	614	7962865581292920	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+240	614	7962865581292920	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+240	614	7962865581292920	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+240	614	7962865581292920	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+615	670	7962865585006664	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+615	670	7962865585006664	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+671	868	7962865587451072	CMakeFiles/bootloader-complete	396c086da913885e
+671	868	7962865587451072	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+671	868	7962865587451072	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+671	868	7962865587451072	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+869	7130	7962865587518184	CMakeFiles/flash	b1ad51c3f7cbaa34
+869	7130	7962865587518184	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/flash	b1ad51c3f7cbaa34
+203	521	7962866769831714	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+203	521	7962866769831714	bootloader/bootloader.elf	fcc911544571a469
+203	521	7962866769831714	bootloader/bootloader.bin	fcc911544571a469
+203	521	7962866769831714	bootloader/bootloader.map	fcc911544571a469
+203	521	7962866769831714	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+203	521	7962866769831714	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+203	521	7962866769831714	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+203	521	7962866769831714	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+522	585	7962866773092352	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+522	585	7962866773092352	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+585	796	7962866775672957	CMakeFiles/bootloader-complete	396c086da913885e
+585	796	7962866775672957	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+585	796	7962866775672957	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+585	796	7962866775672957	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+193	1081	7962866769675478	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	ec349e0d6a0e8a28
+1082	1262	7962866778696448	esp-idf/main/libmain.a	39eda75dd155529f
+1262	17763	7962866944571756	esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+1262	17763	7962866944571756	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+17763	19383	7962866945353190	doom_esp32.elf	6e8614449674f541
+19383	19937	7962866967142245	.bin_timestamp	76c299abd1065270
+19383	19937	7962866967142245	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/.bin_timestamp	76c299abd1065270
+19937	20109	7962866967214416	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+19937	20109	7962866967214416	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+254	511	7962867156951169	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+254	511	7962867156951169	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+242	646	7962867156690781	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+242	646	7962867156690781	bootloader/bootloader.elf	fcc911544571a469
+242	646	7962867156690781	bootloader/bootloader.bin	fcc911544571a469
+242	646	7962867156690781	bootloader/bootloader.map	fcc911544571a469
+242	646	7962867156690781	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+242	646	7962867156690781	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+242	646	7962867156690781	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+242	646	7962867156690781	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+647	706	7962867160881171	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+647	706	7962867160881171	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+707	861	7962867162936470	CMakeFiles/bootloader-complete	396c086da913885e
+707	861	7962867162936470	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+707	861	7962867162936470	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+707	861	7962867162936470	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+861	7286	7962867163029883	CMakeFiles/flash	b1ad51c3f7cbaa34
+861	7286	7962867163029883	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/flash	b1ad51c3f7cbaa34
+234	562	7962872177127760	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+234	562	7962872177127760	bootloader/bootloader.elf	fcc911544571a469
+234	562	7962872177127760	bootloader/bootloader.bin	fcc911544571a469
+234	562	7962872177127760	bootloader/bootloader.map	fcc911544571a469
+234	562	7962872177127760	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+234	562	7962872177127760	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+234	562	7962872177127760	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+234	562	7962872177127760	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+563	627	7962872180472937	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+563	627	7962872180472937	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+627	842	7962872183144976	CMakeFiles/bootloader-complete	396c086da913885e
+627	842	7962872183144976	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+627	842	7962872183144976	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+627	842	7962872183144976	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+223	1119	7962872176971493	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	ec349e0d6a0e8a28
+1120	1302	7962872185977276	esp-idf/main/libmain.a	39eda75dd155529f
+1302	19303	7962872367120643	esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+1302	19303	7962872367120643	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+19303	20953	7962872367771904	doom_esp32.elf	6e8614449674f541
+20954	21496	7962872389754535	.bin_timestamp	76c299abd1065270
+20954	21496	7962872389754535	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/.bin_timestamp	76c299abd1065270
+21497	21781	7962872389851990	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+21497	21781	7962872389851990	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+231	439	7962878140951182	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+231	439	7962878140951182	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+221	548	7962878140794931	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+221	548	7962878140794931	bootloader/bootloader.elf	fcc911544571a469
+221	548	7962878140794931	bootloader/bootloader.bin	fcc911544571a469
+221	548	7962878140794931	bootloader/bootloader.map	fcc911544571a469
+221	548	7962878140794931	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+221	548	7962878140794931	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+221	548	7962878140794931	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+221	548	7962878140794931	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+548	612	7962878144129902	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+548	612	7962878144129902	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+612	777	7962878146359431	CMakeFiles/bootloader-complete	396c086da913885e
+612	777	7962878146359431	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+612	777	7962878146359431	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+612	777	7962878146359431	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+777	6883	7962878146468576	CMakeFiles/flash	b1ad51c3f7cbaa34
+777	6883	7962878146468576	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/flash	b1ad51c3f7cbaa34
+327	795	7965943211863621	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+327	795	7965943211863621	bootloader/bootloader.elf	fcc911544571a469
+327	795	7965943211863621	bootloader/bootloader.bin	fcc911544571a469
+327	795	7965943211863621	bootloader/bootloader.map	fcc911544571a469
+327	795	7965943211863621	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+327	795	7965943211863621	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+327	795	7965943211863621	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+327	795	7965943211863621	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+796	861	7965943216535641	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+796	861	7965943216535641	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+861	1054	7965943219038297	CMakeFiles/bootloader-complete	396c086da913885e
+861	1054	7965943219038297	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+861	1054	7965943219038297	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+861	1054	7965943219038297	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+316	2300	7965943211693514	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	ec349e0d6a0e8a28
+2301	2803	7965943231628516	esp-idf/main/libmain.a	39eda75dd155529f
+2803	24400	7965943451698698	esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+2803	24400	7965943451698698	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+24400	26886	7965943452480073	doom_esp32.elf	6e8614449674f541
+26887	27526	7965943483738556	.bin_timestamp	76c299abd1065270
+26887	27526	7965943483738556	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/.bin_timestamp	76c299abd1065270
+27526	27725	7965943483827948	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+27526	27725	7965943483827948	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+259	519	7965944597286329	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+259	519	7965944597286329	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+248	638	7965944597203026	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+248	638	7965944597203026	bootloader/bootloader.elf	fcc911544571a469
+248	638	7965944597203026	bootloader/bootloader.bin	fcc911544571a469
+248	638	7965944597203026	bootloader/bootloader.map	fcc911544571a469
+248	638	7965944597203026	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+248	638	7965944597203026	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+248	638	7965944597203026	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+248	638	7965944597203026	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+639	705	7965944601124391	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+639	705	7965944601124391	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+705	902	7965944603573200	CMakeFiles/bootloader-complete	396c086da913885e
+705	902	7965944603573200	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+705	902	7965944603573200	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+705	902	7965944603573200	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+902	7383	7965944603729443	CMakeFiles/flash	b1ad51c3f7cbaa34
+902	7383	7965944603729443	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/flash	b1ad51c3f7cbaa34
+224	627	7965946815490709	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+224	627	7965946815490709	bootloader/bootloader.elf	fcc911544571a469
+224	627	7965946815490709	bootloader/bootloader.bin	fcc911544571a469
+224	627	7965946815490709	bootloader/bootloader.map	fcc911544571a469
+224	627	7965946815490709	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+224	627	7965946815490709	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+224	627	7965946815490709	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+224	627	7965946815490709	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+628	713	7965946819496869	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+628	713	7965946819496869	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+713	891	7965946821995731	CMakeFiles/bootloader-complete	396c086da913885e
+713	891	7965946821995731	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+713	891	7965946821995731	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+713	891	7965946821995731	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+213	1212	7965946815324433	esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj	ec349e0d6a0e8a28
+1213	1374	7965946825335377	esp-idf/main/libmain.a	39eda75dd155529f
+1374	18598	7965946998407026	esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+1374	18598	7965946998407026	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esp_system/ld/sections.ld	238d97ad6713e370
+18598	20389	7965946999188369	doom_esp32.elf	6e8614449674f541
+20389	21000	7965947023100097	.bin_timestamp	76c299abd1065270
+20389	21000	7965947023100097	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/.bin_timestamp	76c299abd1065270
+21000	21184	7965947023263895	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+21000	21184	7965947023263895	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+221	516	7965947183725579	esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+221	516	7965947183725579	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/esp-idf/esptool_py/CMakeFiles/app_check_size	8aec79258f15c200
+210	590	7965947183591150	bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+210	590	7965947183591150	bootloader/bootloader.elf	fcc911544571a469
+210	590	7965947183591150	bootloader/bootloader.bin	fcc911544571a469
+210	590	7965947183591150	bootloader/bootloader.map	fcc911544571a469
+210	590	7965947183591150	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build	fcc911544571a469
+210	590	7965947183591150	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.elf	fcc911544571a469
+210	590	7965947183591150	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin	fcc911544571a469
+210	590	7965947183591150	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.map	fcc911544571a469
+591	651	7965947187395457	bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+591	651	7965947187395457	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install	35d2890dd77693d3
+651	791	7965947189332151	CMakeFiles/bootloader-complete	396c086da913885e
+651	791	7965947189332151	bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+651	791	7965947189332151	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/bootloader-complete	396c086da913885e
+651	791	7965947189332151	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-done	396c086da913885e
+791	7046	7965947189392858	CMakeFiles/flash	b1ad51c3f7cbaa34
+791	7046	7965947189392858	C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/CMakeFiles/flash	b1ad51c3f7cbaa34
