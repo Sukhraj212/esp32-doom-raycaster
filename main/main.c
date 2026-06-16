@@ -1278,10 +1278,16 @@ void render_projectiles(void)
         while (angle_diff < -M_PI)
             angle_diff += 2.0f * M_PI;
 
+        if (fabsf(angle_diff) > HALF_FOV)
+            continue;
+        
         float dx = player.x - projectiles[i].x;
         float dy = player.y - projectiles[i].y;
 
         float dist_to_player = sqrtf(dx * dx + dy * dy);
+
+        if (dist_to_player < 0.1f)
+        dist_to_player = 0.1f;
 
         int screen_x =
             (int)((angle_diff / FOV + 0.5f) * SH1106_WIDTH);
@@ -1290,14 +1296,14 @@ void render_projectiles(void)
         // sprite size
         //----------------------------------------
 
-        int sprite_height =
-            (int)(SH1106_HEIGHT / dist_to_player);
+        int sprite_height = (int)(20.0f / dist_to_player);
 
-        int sprite_width =
-            (FIREBALL_W * sprite_height) / FIREBALL_H;
+        if (sprite_height < 2)
+            sprite_height = 2;
 
-        int y0 =
-            (SH1106_HEIGHT / 2) - (sprite_height / 2);
+        int sprite_width = (FIREBALL_W * sprite_height) / FIREBALL_H;
+
+        int y0 = (SH1106_HEIGHT / 2) - (sprite_height / 2);
 
         //----------------------------------------
         // current animation frame
@@ -1615,6 +1621,7 @@ void app_main(void) {
             render();
             render_sprites();
             render_projectiles();
+            render_weapon();
             sh1106_draw(buffer);
         }
 
