@@ -7,13 +7,14 @@
 #include "lcd.h"
 #include "esp_log.h"
 #include "esp_timer.h"
+#include "driver/gpio.h"
 
 // Display config for the SH1106 OLED
 
 #define I2C_MASTER_SCL_IO    22
 #define I2C_MASTER_SDA_IO    21
 #define I2C_MASTER_NUM       I2C_NUM_0
-#define I2C_MASTER_FREQ_HZ   1000000
+#define I2C_MASTER_FREQ_HZ   400000
 #define SH1106_ADDR          0x3C
 #define SH1106_WIDTH         128
 #define SH1106_HEIGHT        64
@@ -23,7 +24,7 @@
 #define map_W       32
 #define map_H       32
 #define FOV         (M_PI / 3.0f) // 60 degrees
-#define NUM_RAYS    SH1106_WIDTH // 1 ray per column
+#define NUM_RAYS    SH1106_WIDTH
 #define HALF_FOV    (FOV / 2.0f) 
 #define MAX_DEPTH   16.0f
 
@@ -39,16 +40,50 @@
 
 // Movement config
 #define MOVE_SPEED  0.1f
-#define TURN_SPEED  0.08f
+#define TURN_SPEED  0.08f 
 
 // Enemies
 #define MAX_ENEMIES 8
 #define ENEMY_SPEED 0.05f
 
+// Animations
+
+// Fist
+#define FIST_W 16
+#define FIST_H 24
+
+#define FIST_RANGE 1.5f
+
+// Enemies animations
+
+// Imp Idle
+#define TROO_W 16
+#define TROO_H 24
+
+// Imp's projectile
+#define FIREBALL_W 8
+#define FIREBALL_H 8
+
+// FPS
+#define TARGET_FPS      30
+#define FRAME_TIME_US   (1000000 / TARGET_FPS)
+
+// Game
+#define GAME_SPEED 0.7f
+
+// Enemy's distance from player
+#define STOP_DIST   2.2f   // where enemy stops moving
+#define ATTACK_DIST 2.4f   // where enemy can deal damage
+
 // FPS counter
 static int frame_counter;
 static int64_t time_stamp;
 static int last_fps;
+
+// Speed
+static float deltaTime = 1.0f / TARGET_FPS;
+static int prev_shoot_btn = 0;
+
 
 // z-buffer
 static float zbuffer[SH1106_WIDTH];
@@ -89,6 +124,21 @@ static const int map[map_H][map_W] = {
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 };
 
+// Helper function for safe map collision checks
+static int is_wall(float x, float y) {
+
+    int mx = (int)x;
+    int my = (int)y;
+
+    // Treat outside map as solid wall
+    if (mx < 0 || mx >= map_W ||
+        my < 0 || my >= map_H) {
+        return 1;
+    }
+
+    return map[my][mx];
+}
+
 // Player structure
 typedef struct{
     float x;
@@ -110,20 +160,211 @@ struct player_stats {
 };
 
 //Enemy structure + storage
+
+typedef enum {
+    ENEMY_IMP,
+    ENEMY_TROOPER,
+    ENEMY_SERGEANT,
+    ENEMY_PINKY,
+    ENEMY_BARON
+} EnemyType;
+
+typedef enum {
+    ESTATE_IDLE,
+    ESTATE_CHASE,
+    ESTATE_ATTACK,
+    ESTATE_PAIN,
+    ESTATE_DEAD
+} EnemyState;
+
+
 struct enemy {
     float x, y;
+
     int health;
-    int active; // 1 = alive, 0 = dead/inactive
+    int active;
+
     int damage_tick;
+
+    int anim_frame;
+    int anim_timer;
+
+    EnemyType type;
+
+    float speed;
+    int damage;
+
+    EnemyState state;
+    int state_timer;
+
+    int attack_cooldown;
 };
 
 struct enemy enemies[MAX_ENEMIES];
+
+// Weapon states
+typedef enum {
+    WSTATE_IDLE,
+    WSTATE_ATTACK
+} WeaponState;
+
+// Weapon frames
+typedef enum {
+    WFIST_A,
+    WFIST_B,
+    WFIST_C,
+    WFIST_D
+} FistFrame;
+
+// Weapon structure
+typedef struct {
+    WeaponState state;
+
+    int frame;
+    int anim_timer;
+
+    int damage_done;
+} Weapon;
+
+Weapon fist = {
+    .state = WSTATE_IDLE,
+    .frame = WFIST_A,
+    .anim_timer = 0,
+    .damage_done = 0
+};
+
+// Projectile structure
+enum ProjectileType {
+    PTYPE_IMP_FIREBALL
+};
+
+struct projectile {
+
+    bool active;
+
+    ProjectileType type;
+
+    float x;
+    float y;
+
+    float dx;
+    float dy;
+
+    float speed;
+
+    int damage;
+
+    int anim_frame;
+    int anim_timer;
+};
+
+#define MAX_PROJECTILES 16
+
+projectile projectiles[MAX_PROJECTILES];
+
+void projectiles_init(void) {
+
+    for (int i = 0; i < MAX_PROJECTILES; i++) {
+
+        projectiles[i].active = false;
+        projectiles[i].anim_frame = 0;
+        projectiles[i].anim_timer = 0;
+    }
+}
+
+void spawn_projectile(
+    float x,
+    float y,
+    float dx,
+    float dy,
+    float speed,
+    int damage)
+{
+    for (int i = 0; i < MAX_PROJECTILES; i++) {
+
+        if (!projectiles[i].active) {
+
+            projectiles[i].active = true;
+
+            projectiles[i].type = PTYPE_IMP_FIREBALL;
+
+            projectiles[i].x = x;
+            projectiles[i].y = y;
+
+            projectiles[i].dx = dx;
+            projectiles[i].dy = dy;
+
+            projectiles[i].speed = speed;
+            projectiles[i].damage = damage;
+
+            projectiles[i].anim_frame = 0;
+            projectiles[i].anim_timer = 0;
+
+            return;
+        }
+    }
+}
 
 // Initialize enemies (all inactive)
 void enemies_init(void) {
     for (int i = 0; i < MAX_ENEMIES; i++) {
         enemies[i].health = 50;
         enemies[i].active = 0;
+        enemies[i].anim_frame = 0;
+        enemies[i].anim_timer = 0;
+        enemies[i].damage_tick = 0;
+    }
+}
+
+void spawn_enemy(int slot, EnemyType type, float x, float y) {
+
+    enemies[slot].x = x;
+    enemies[slot].y = y;
+
+    enemies[slot].active = 1;
+
+    enemies[slot].anim_frame = 0;
+    enemies[slot].anim_timer = 0;
+
+    enemies[slot].damage_tick = 0;
+
+    enemies[slot].type = type;
+
+    enemies[slot].state = ESTATE_CHASE;
+    enemies[slot].state_timer = 0;
+
+    switch(type) {
+
+        case ENEMY_IMP:
+            enemies[slot].health = 60;
+            enemies[slot].speed = 0.04f;
+            enemies[slot].damage = 10;
+            enemies[slot].attack_cooldown = 0;
+            break;
+
+        case ENEMY_TROOPER:
+            enemies[slot].health = 30;
+            enemies[slot].speed = 0.05f;
+            enemies[slot].damage = 5;
+            break;
+
+        case ENEMY_SERGEANT:
+            enemies[slot].health = 50;
+            enemies[slot].speed = 0.04f;
+            enemies[slot].damage = 15;
+            break;
+
+        case ENEMY_PINKY:
+            enemies[slot].health = 120;
+            enemies[slot].speed = 0.06f;
+            enemies[slot].damage = 20;
+            break;
+
+        case ENEMY_BARON:
+            enemies[slot].health = 400;
+            enemies[slot].speed = 0.03f;
+            enemies[slot].damage = 25;
+            break;
     }
 }
 
@@ -131,66 +372,375 @@ void enemies_init(void) {
 void enemies_update(struct player_stats *stats) {
 
     for (int i = 0; i < MAX_ENEMIES; i++) {
-        if (enemies[i].active == 1) {
 
-            float dx = player.x - enemies[i].x;
-            float dy = player.y - enemies[i].y;
+        if (!enemies[i].active)
+            continue;
 
-            float len = sqrtf(dx * dx + dy * dy);
+        // DEAD STATE
+        if (enemies[i].state == ESTATE_DEAD) {
 
-            if (len > 0.0001f) {
-                float inv = 1.0f / len;
-                dx *= inv;
-                dy *= inv;
-            }
-            
-            // Attempt movement
-            float nx = enemies[i].x + dx * ENEMY_SPEED;
-            float ny = enemies[i].y + dy * ENEMY_SPEED;
-            
-            // Collision with map
-            if ((int)nx >= 0 && (int)nx < map_W && (int)ny >= 0 && (int)ny < map_H) {
-                 if (map[(int)enemies[i].y][(int)nx] != 1) 
-                enemies[i].x = nx;
+            enemies[i].state_timer--;
 
-                if (map[(int)ny][(int)enemies[i].x] != 1) 
-                    enemies[i].y = ny;
-            
+            if (enemies[i].state_timer <= 0) {
+                enemies[i].active = 0;
             }
 
-            // Damage tick (prevents instant rapid damage)
-            enemies[i].damage_tick++;
+            continue;
+        }
 
-            float dist_sq = dx * dx + dy * dy;
-            float len = sqrtf(dist_sq);
+        if (enemies[i].attack_cooldown > 0) {
+            enemies[i].attack_cooldown--;
+        }
 
-            if (dist_sq < (0.5f * 0.5f)) {
-                // deal damage
+        // PAIN STATE
+        if (enemies[i].state == ESTATE_PAIN) {
+
+            enemies[i].state_timer--;
+
+            if (enemies[i].state_timer <= 0) {
+                enemies[i].state = ESTATE_CHASE;
             }
 
-            // If close to player, deal damage to them
-            if (dist_sq < (0.5f * 0.5f) && enemies[i].damage_tick >= 10) {
-                stats -> health -= 10;
+            continue;
+        }
 
-                if (stats -> health < 0) {
-                    stats -> health = 0;
-                    enemies[i].damage_tick = 0;
-                }
+        // ===== NORMAL CHASE LOGIC BELOW =====
+
+        float dxp = player.x - enemies[i].x;
+        float dyp = player.y - enemies[i].y;
+        float dist_sq = dxp * dxp + dyp * dyp;
+
+        float dx = dxp;
+        float dy = dyp;
+
+        if (dist_sq > 0.0001f) {
+            float inv = 1.0f / sqrtf(dist_sq);
+            dx *= inv;
+            dy *= inv;
+        }
+
+        // Animation
+        enemies[i].anim_timer++;
+
+        if (enemies[i].anim_timer >= 106) {
+
+            enemies[i].anim_timer = 0;
+
+            switch (enemies[i].state) {
+
+                case ESTATE_CHASE:
+                    enemies[i].anim_frame =
+                        (enemies[i].anim_frame + 1) % 4;
+                    break;
+
+                case ESTATE_ATTACK:
+                    if (enemies[i].anim_frame == 0)
+                        enemies[i].anim_frame = 1;
+                    break;
+
+                case ESTATE_PAIN:
+                    enemies[i].anim_frame = 0;
+                    break;
+
+                case ESTATE_DEAD:
+                    enemies[i].anim_frame = 0;
+                    break;
+
+                default:
+                    break;
             }
         }
 
-    }
+        // ATTACK STATE
+        if (enemies[i].state == ESTATE_ATTACK) {
 
+            enemies[i].state_timer--;
+
+            //------------------------------------
+            // IMP ATTACK
+            //------------------------------------
+            if (enemies[i].type == ETYPE_IMP) {
+
+                if (enemies[i].state_timer == 6 &&
+                    enemies[i].damage_tick == 0) {
+
+                    spawn_projectile(
+                        enemies[i].x,
+                        enemies[i].y,
+                        dx,
+                        dy,
+                        0.15f,
+                        8
+                    );
+
+                    enemies[i].damage_tick = 1;
+                }
+            }
+
+            //------------------------------------
+            // ALL OTHER ENEMIES
+            //------------------------------------
+            else {
+
+                if (enemies[i].state_timer == 6 &&
+                    enemies[i].damage_tick == 0) {
+
+                    stats->health -= enemies[i].damage;
+
+                    if (stats->health < 0)
+                        stats->health = 0;
+
+                    enemies[i].damage_tick = 15;
+                }
+            }
+
+            if (enemies[i].state_timer <= 0) {
+
+                enemies[i].state = ESTATE_CHASE;
+            }
+
+            continue;
+        }
+
+        // Movement
+        if (dist_sq > STOP_DIST * STOP_DIST) {
+
+            float move_speed =
+                enemies[i].speed;
+
+            float nx = enemies[i].x + dx * move_speed;
+            float ny = enemies[i].y + dy * move_speed;
+
+            if (!is_wall(nx, ny)) {
+
+                enemies[i].x = nx;
+                enemies[i].y = ny;
+
+            } else {
+
+                if (!is_wall(nx, enemies[i].y))
+                    enemies[i].x = nx;
+
+                if (!is_wall(enemies[i].x, ny))
+                    enemies[i].y = ny;
+            }
+        }
+
+        // Attack cooldown
+        if (enemies[i].damage_tick > 0)
+            enemies[i].damage_tick--;
+
+        // Attack
+        if (dist_sq < ATTACK_DIST * ATTACK_DIST) {
+
+            if (enemies[i].state != ESTATE_ATTACK && enemies[i].attack_cooldown <= 0) {
+
+                enemies[i].state = ESTATE_ATTACK;
+
+                if (enemies[i].type == ETYPE_IMP) {
+
+                    enemies[i].state_timer = 18;
+                    enemies[i].attack_cooldown = 40;
+
+                } else {
+
+                    enemies[i].state_timer = 12;
+                    enemies[i].attack_cooldown = 25;
+                }
+
+                enemies[i].anim_frame = 0;
+                enemies[i].anim_timer = 0;
+            }
+        }
+    }
 }
+
+
+void projectiles_update(struct player_stats *stats)
+{
+    for (int i = 0; i < MAX_PROJECTILES; i++) {
+
+        if (!projectiles[i].active)
+            continue;
+
+        projectiles[i].x +=
+            projectiles[i].dx * projectiles[i].speed;
+
+        projectiles[i].y +=
+            projectiles[i].dy * projectiles[i].speed;
+ 
+        projectiles[i].anim_timer++;
+
+        if (projectiles[i].anim_timer >= 4) {
+
+            projectiles[i].anim_timer = 0;
+
+            projectiles[i].anim_frame =
+                (projectiles[i].anim_frame + 1) % 2;
+        }
+
+        // wall collision
+        if (is_wall(projectiles[i].x,
+                    projectiles[i].y)) {
+
+            projectiles[i].active = false;
+            continue;
+        }
+
+        // player collision
+        float dx = player.x - projectiles[i].x;
+        float dy = player.y - projectiles[i].y;
+
+        if (dx*dx + dy*dy < 0.25f) {
+
+            stats->health -= projectiles[i].damage;
+
+            if (stats->health < 0)
+                stats->health = 0;
+
+            projectiles[i].active = false;
+        }
+    }
+}
+
 
 // Frame buffer (OLED)
 static uint8_t buffer[SH1106_WIDTH * SH1106_PAGES];
+
+const uint8_t PUNGA0[] = {
+    // image2cpp output 
+    0x01, 0x00, 0x05, 0x80, 0x05, 0x80, 0x07, 0xc0, 0x07, 0xc0, 0x07, 0xe0, 0x07, 0xe0, 0x03, 0xf0, 
+	0x03, 0xf0, 0x03, 0xf0, 0x03, 0xf0, 0x01, 0xf8, 0x01, 0xf8, 0x01, 0xf8, 0x01, 0xfc, 0x01, 0xfc, 
+	0x00, 0xfc, 0x00, 0xfe, 0x40, 0xfe, 0xe0, 0xfe, 0xa0, 0xfe, 0xd0, 0xff, 0xf0, 0xff, 0xf8, 0xff
+};
+
+const uint8_t PUNGB0[] = {
+    // second frame
+    0x00, 0x00, 0x00, 0x00, 0x00, 0xc0, 0x01, 0xc0, 0x01, 0xc0, 0x01, 0xe0, 0x03, 0xe0, 0x03, 0xf0, 
+	0x03, 0xf8, 0x03, 0xfc, 0x0b, 0xfc, 0x0b, 0xfc, 0x0f, 0xfe, 0x0b, 0xfe, 0x1f, 0xfe, 0x1b, 0xfe, 
+	0x1c, 0xff, 0x1f, 0xff, 0x39, 0xff, 0x3b, 0xfe, 0x7f, 0xff, 0x73, 0xdf, 0xff, 0xf6, 0xe7, 0xfe
+};
+
+const uint8_t PUNGC0[] = {
+    // third frame
+    0x00, 0x3c, 0x00, 0x3c, 0x00, 0x7c, 0x00, 0x7c, 0x00, 0xfc, 0x00, 0xfc, 0x01, 0xfc, 0x01, 0xfe, 
+	0x03, 0xfe, 0x03, 0xfe, 0x03, 0xfe, 0x07, 0xfe, 0x07, 0xfe, 0x0f, 0xfe, 0x0f, 0xff, 0x0f, 0xff, 
+	0x1f, 0xff, 0x1f, 0xff, 0x3f, 0xfe, 0x3f, 0xfc, 0x7f, 0xf8, 0x7f, 0xf0, 0x7f, 0xa0, 0xff, 0x00
+};
+
+const uint8_t PUNGD0[] = {
+    // fourth frame
+    0x00, 0x00, 0x00, 0x1e, 0x00, 0x3e, 0x00, 0x77, 0x00, 0xfd, 0x00, 0xff, 0x01, 0xff, 0x01, 0xff, 
+	0x03, 0xff, 0x03, 0xfe, 0x07, 0xfe, 0x0f, 0xfe, 0x0f, 0xfe, 0x1f, 0xc2, 0x1f, 0xc0, 0x1f, 0xc0, 
+	0x3f, 0x80, 0x3f, 0x80, 0x3f, 0x80, 0x3f, 0x80, 0x7f, 0x80, 0x7f, 0x80, 0x7f, 0x80, 0xff, 0x00
+
+};
+
+static const uint8_t* FIST_FRAMES[] = {
+    PUNGA0,
+    PUNGB0,
+    PUNGC0,
+    PUNGD0
+};
+
+// 'TROOA1', 16x24px
+const uint8_t TROOA1[] = {
+	0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4, 
+	0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30, 
+	0x07, 0x20, 0x00, 0x00, 0x03, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x20, 0x01, 0x00, 0x02, 0x80
+};
+// 'TROOB1', 16x24px
+const uint8_t TROOB1[] = {
+	0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74, 
+	0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70, 
+	0x00, 0x70, 0x00, 0x60, 0x05, 0x60, 0x00, 0x70, 0x00, 0x60, 0x00, 0x20, 0x02, 0x20, 0x00, 0x70
+};
+// 'TROOC1', 16x24px
+const uint8_t TROOC1[] = {
+	0x01, 0xc0, 0x03, 0xc0, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0x34, 0x1f, 0xbc, 0x0e, 0x7c, 0x26, 0x70, 
+	0x00, 0x02, 0x41, 0x40, 0xe1, 0x03, 0x67, 0xe2, 0x27, 0x72, 0x07, 0x70, 0x07, 0x70, 0x07, 0x70, 
+	0x07, 0x50, 0x01, 0x20, 0x02, 0x20, 0x00, 0xf0, 0x00, 0xa0, 0x01, 0xa0, 0x00, 0x20, 0x00, 0x70
+};
+// 'TROOD1', 16x24px
+const uint8_t TROOD1[] = {
+	0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62, 
+	0x46, 0x60, 0x64, 0x40, 0x61, 0xc1, 0x00, 0xa0, 0x07, 0xe0, 0x07, 0x00, 0x07, 0x00, 0x07, 0x00, 
+	0x07, 0x00, 0x06, 0x00, 0x02, 0x20, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x00, 0x02, 0x80
+};
+
+// Imp
+static const uint8_t* IMP_MOVE[] = {
+    TROOA1,
+    TROOB1,
+    TROOC1,
+    TROOD1
+};
+
+static const uint8_t* IMP_ATTACK[] = {
+    TROOE1,
+    TROOF1,
+    TROOG1
+};
+
+static const uint8_t* IMP_PAIN[] = {
+    TROOH1
+};
+
+static const uint8_t* IMP_DEATH[] = {
+    TROOI0,
+    TROOJ0,
+    TROOK0,
+    TROOL0,
+    TROOM0
+};
+
+// Imp projectile
+const uint8_t FIREBALL_A[] = {
+    // 8x8 bitmap
+};
+
+const uint8_t FIREBALL_B[] = {
+    // frame 2
+};
+
+static const uint8_t* FIREBALL_FRAMES[] = {
+    FIREBALL_A,
+    FIREBALL_B
+};
+
+// Zombie man
+static const uint8_t* ZOMBIE_MOVE[] = {
+    POSSA1,
+    POSSB1,
+    POSSC1,
+    POSSD1
+};
+
+static const uint8_t* ZOMBIE_ATTACK[] = {
+    POSSE1,
+    POSSF1
+};
+
+static const uint8_t* ZOMBIE_PAIN[] = {
+    POSSG1
+};
+
+static const uint8_t* ZOMBIE_DEATH[] = {
+    POSSH0,
+    POSSI0,
+    POSSJ0,
+    POSSK0,
+    POSSL0
+};
+
 
 // Forward Declarations
 static void draw_vline_shaded(uint8_t *buf, int x, int y0, int y1, float dist);
 static int show_map = 0;
 static int prev_map_btn = 0;
 static void render_automap(void);
+
+float cast_shoot_ray(void);
 
 // I2C / Display drivers 
 
@@ -255,6 +805,156 @@ static void set_pixel(uint8_t *buf, int x, int y, int on) {
         buf[(y / 8) * SH1106_WIDTH + x] &= ~(1 << (y % 8));
 }
 
+static void draw_scaled_sprite(
+    uint8_t *buf,
+    int center_x,
+    int center_y,
+    int target_w,
+    int target_h,
+    const uint8_t *sprite,
+    int src_w,
+    int src_h,
+    int color
+) {
+
+    int start_x = center_x - (target_w / 2);
+    int start_y = center_y - (target_h / 2);
+
+    for (int y = 0; y < target_h; y++) {
+        for (int x = 0; x < target_w; x++) {
+
+            int src_x = (x * src_w) / target_w;
+            int src_y = (y * src_h) / target_h;
+
+            int byte_index =
+                src_y * (src_w / 8) + (src_x / 8);
+
+            int bit = 7 - (src_x % 8);
+
+            if (sprite[byte_index] & (1 << bit)) {
+                set_pixel(buf, start_x + x, start_y + y, color);
+            }
+        }
+    }
+}
+
+static void render_weapon(void) {
+
+    const uint8_t *sprite = FIST_FRAMES[fist.frame];
+
+    int offset_x = 0;
+    int offset_y = 0;
+
+    int fist_size = 40;
+
+    // Weapon bob
+    static int bob = 0;
+    bob++;
+
+    int bob_y = (int)(sinf(bob * 0.15f) * 2);
+
+    switch (fist.frame) {
+
+        case WFIST_B:
+            offset_x = -10;
+            offset_y = 2;
+            break;
+
+        case WFIST_C:
+            offset_x = -38;
+            offset_y = -2;
+            break;
+
+        case WFIST_D:
+            offset_x = -30;
+            offset_y = 1;
+            break;
+
+        default:
+            break;
+    }
+
+    // Bigger impact frame
+    if (fist.frame == WFIST_C) {
+        fist_size = 48;
+    }
+
+    // Shadow / outline
+    draw_scaled_sprite(
+        buffer,
+
+        (SH1106_WIDTH / 2) + 20 + offset_x + 1,
+        SH1106_HEIGHT - 10 + offset_y + bob_y + 1,
+
+        fist_size,
+        fist_size,
+
+        sprite,
+        FIST_W,
+        FIST_H,
+        0
+    );
+
+    // Main sprite
+    draw_scaled_sprite(
+        buffer,
+
+        (SH1106_WIDTH / 2) + 20 + offset_x,
+        SH1106_HEIGHT - 10 + offset_y + bob_y,
+
+        fist_size,
+        fist_size,
+
+        sprite,
+        FIST_W,
+        FIST_H,
+        2
+    );
+}
+
+
+void update_fist(void) {
+
+    if (fist.state == WSTATE_IDLE)
+        return;
+
+    fist.anim_timer++;
+
+    if (fist.anim_timer < 7)
+        return;
+
+    fist.anim_timer = 0;
+
+    switch (fist.frame) {
+
+        case WFIST_B:
+            fist.frame = WFIST_C;
+            break;
+
+        case WFIST_C:
+
+            // Apply damage exactly once
+            if (!fist.damage_done) {
+                cast_shoot_ray();
+                fist.damage_done = 1;
+            }
+
+            fist.frame = WFIST_D;
+            break;
+
+        case WFIST_D:
+
+            // End attack
+            fist.state = WSTATE_IDLE;
+            fist.frame = WFIST_A;
+            break;
+
+        case WFIST_A:
+        default:
+            break;
+    }
+}
+
 // RENDERING (3D WALLS)
 
 // Draw vertical wall slice with distance shading
@@ -308,7 +1008,7 @@ static void keypad_init(void) {
     for (int i = 0; i < 4; i++) {
         gpio_reset_pin(cols[i]);
         gpio_set_direction(cols[i], GPIO_MODE_INPUT);
-        gpio_set_level(cols[i], GPIO_PULLUP_ONLY);
+        gpio_set_pull_mode(cols[i], GPIO_PULLUP_ONLY);
     }
 }
 
@@ -323,42 +1023,91 @@ static int key_pressed(int row_pin, int col_pin) {
 // RAYCASTING CORE
 
 // Cast a single ray. return wall distance
-static float cast_ray(float px, float py, float angle) {
-    float ray_cos = cosf(angle);
-    float ray_sin = sinf(angle);
+static float cast_ray(float px, float py, float dirX, float dirY) {
 
-    float dist = 0.0f;
-    for (dist = 0.0f; dist < MAX_DEPTH; dist += 0.05f) {
-        float rx = px + ray_cos * dist;
-        float ry = py + ray_sin * dist;
+    int mapX = (int)px;
+    int mapY = (int)py;
 
-        int mx = (int)rx;
-        int my = (int)ry;
+    float invDirX = (dirX == 0.0f) ? 1e30f : 1.0f / dirX;
+    float invDirY = (dirY == 0.0f) ? 1e30f : 1.0f / dirY;   
 
-        if (mx < 0 || mx >= map_W || my < 0 || my >= map_H) return dist;
-        if (map[my][mx] == 1) return dist;
+    float deltaDistX = fabsf(invDirX);
+    float deltaDistY = fabsf(invDirY);
+
+    int stepX, stepY;
+    float sideDistX, sideDistY;
+
+    if (dirX < 0) {
+        stepX = -1;
+        sideDistX = (px - mapX) * deltaDistX;
+    } else {
+        stepX = 1;
+        sideDistX = (mapX + 1.0f - px) * deltaDistX;
     }
-    return MAX_DEPTH;
+
+    if (dirY < 0) {
+        stepY = -1;
+        sideDistY = (py - mapY) * deltaDistY;
+    } else {
+        stepY = 1;
+        sideDistY = (mapY + 1.0f - py) * deltaDistY;
+    }
+
+    int hit = 0;
+    int side = 0;
+
+    while (!hit) {
+        if (sideDistX < sideDistY) {
+            sideDistX += deltaDistX;
+            mapX += stepX;
+            side = 0;
+        } else {
+            sideDistY += deltaDistY;
+            mapY += stepY;
+            side = 1;
+        }
+
+        if (mapX < 0 || mapX >= map_W || mapY < 0 || mapY >= map_H)
+            return MAX_DEPTH;
+
+        if (map[mapY][mapX] == 1)
+            hit = 1;
+    }
+
+    if (side == 0)
+        return (mapX - px + (1 - stepX) / 2) / dirX;
+    else
+        return (mapY - py + (1 - stepY) / 2) / dirY;
 }
 
 // Render full 3D scene
 static void render(void) {
     memset(buffer, 0, sizeof(buffer));
 
+    float start_angle = player.angle - HALF_FOV;
+    float step = FOV / NUM_RAYS;
+
+    float cos_step = cosf(step);
+    float sin_step = sinf(step);
+
+    // initial ray direction
+    float dirX = cosf(start_angle);
+    float dirY = sinf(start_angle);
+
+    // for fisheye correction (also incremental)
+    float cos_player = cosf(player.angle);
+    float sin_player = sinf(player.angle);
+
     for (int col = 0; col < NUM_RAYS; col++) {
-        // Compute ray angle
-        float ray_angle = player.angle - HALF_FOV
-                        + ((float)col / NUM_RAYS) * FOV;
 
-        float dist = cast_ray(player.x, player.y, ray_angle);
+        float dist = cast_ray(player.x, player.y, dirX, dirY);
 
-        // Remove fisheye distortion
-        dist *= cosf(ray_angle - player.angle);
+        // fisheye correction using dot product (NO trig)
+        float dot = dirX * cos_player + dirY * sin_player;
+        dist *= dot;
 
-        // Store Per Column
         zbuffer[col] = dist;
 
-        // Wall height — closer = taller
         int wall_h = (int)(SH1106_HEIGHT / (dist + 0.0001f));
         if (wall_h > SH1106_HEIGHT) wall_h = SH1106_HEIGHT;
 
@@ -367,13 +1116,52 @@ static void render(void) {
 
         draw_floor_ceiling(buffer, col, y0, y1);
         draw_vline_shaded(buffer, col, y0, y1, dist);
-    }
 
+        // rotate ray direction for next column
+        float newX = dirX * cos_step - dirY * sin_step;
+        float newY = dirX * sin_step + dirY * cos_step;
+        dirX = newX;
+        dirY = newY;
+    }
 }
 
 void render_sprites(void) {
+    typedef struct {
+        int index;
+        float dist;
+    } EnemySort;
+
+    EnemySort sorted[MAX_ENEMIES];
+    int count = 0;
+
+    // Collect active enemies
     for (int i = 0; i < MAX_ENEMIES; i++) {
-        float angle_to_enemy = atan2f(enemies[i].y - player.y, enemies[i].x - player.x);
+        if (enemies[i].active) {
+            float dx = player.x - enemies[i].x;
+            float dy = player.y - enemies[i].y;
+            sorted[count].index = i;
+            sorted[count].dist = dx * dx + dy * dy; // no sqrt needed
+            count++;
+        }
+    }
+
+    // Sort far → near
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = 0; j < count - i - 1; j++) {
+            if (sorted[j].dist < sorted[j + 1].dist) {
+                EnemySort tmp = sorted[j];
+                sorted[j] = sorted[j + 1];
+                sorted[j + 1] = tmp;
+            }
+        }
+    }
+
+    // Render in sorted order
+    for (int k = 0; k < count; k++) {
+        int i = sorted[k].index;
+
+        float angle_to_enemy = atan2f(enemies[i].y - player.y,
+                                      enemies[i].x - player.x);
         float angle_diff = angle_to_enemy - player.angle;
 
         while (angle_diff > M_PI) angle_diff -= 2 * M_PI;
@@ -382,22 +1170,191 @@ void render_sprites(void) {
         float dx = player.x - enemies[i].x;
         float dy = player.y - enemies[i].y;
         float dist_to_player = sqrtf(dx * dx + dy * dy);
-        
+
         int screen_x = (int)((angle_diff / FOV + 0.5f) * SH1106_WIDTH);
-        if (enemies[i].active == 1 && screen_x >= 0 && screen_x < SH1106_WIDTH && dist_to_player < zbuffer[screen_x]) {
-            int sprite_height = (int)(SH1106_HEIGHT / dist_to_player);
-            int sprite_width  = sprite_height / 2;
+        
+        int col = screen_x;
 
-            int y0 = (SH1106_HEIGHT / 2) - (sprite_height / 2);
-            int y1 = (SH1106_HEIGHT / 2) + (sprite_height / 2);
+        if (col < 0 || col >= SH1106_WIDTH) continue;
 
-            for (int x = -sprite_width / 2; x <= sprite_width / 2; x++) {
-                int draw_x = screen_x + x;
+        if (dist_to_player >= zbuffer[col]) continue;
 
-                if (draw_x < 0 || draw_x >= SH1106_WIDTH) continue;
+        int sprite_height = (int)(SH1106_HEIGHT / dist_to_player);
+        int sprite_width = (TROO_W * sprite_height) / TROO_H;
 
-                if (dist_to_player < zbuffer[draw_x]) {
-                    draw_vline_shaded(buffer, draw_x, y0, y1, dist_to_player);
+        if (screen_x < -sprite_width || screen_x >= SH1106_WIDTH + sprite_width) continue;
+
+        int y0 = (SH1106_HEIGHT / 2) - (sprite_height / 2);
+
+        const uint8_t *sprite = NULL;
+
+        switch(enemies[i].type) {
+
+            case ENEMY_IMP:
+
+                switch(enemies[i].state)
+                {
+                    case ESTATE_CHASE:
+                        sprite = IMP_MOVE[enemies[i].anim_frame % 4];
+                        break;
+
+                    case ESTATE_ATTACK:
+                        sprite = IMP_ATTACK[enemies[i].anim_frame % 3];
+                        break;
+
+                    case ESTATE_PAIN:
+                        sprite = IMP_PAIN[0];
+                        break;
+
+                    case ESTATE_DEAD:
+                        sprite = IMP_DEATH[enemies[i].anim_frame % 5];
+                        break;
+
+                    default:
+                        sprite = IMP_MOVE[0];
+                        break;
+                }
+
+                break;
+
+            case ENEMY_TROOPER:
+                sprite = TROO_FRAMES[enemies[i].anim_frame % 4];
+                break;
+
+            case ENEMY_SERGEANT:
+                sprite = TROO_FRAMES[enemies[i].anim_frame % 4];
+                break;
+
+            case ENEMY_PINKY:
+                sprite = TROO_FRAMES[enemies[i].anim_frame % 4];
+                break;
+
+            case ENEMY_BARON:
+                sprite = TROO_FRAMES[enemies[i].anim_frame % 4];
+                break;
+        } 
+
+        for (int x = -sprite_width / 2; x <= sprite_width / 2; x++) {
+            int draw_x = screen_x + x;
+            if (draw_x < 0 || draw_x >= SH1106_WIDTH) continue;
+            if (dist_to_player >= zbuffer[draw_x]) continue;
+
+            for (int y = 0; y < sprite_height; y++) {
+                int draw_y = y0 + y;
+                if (draw_y < 0 || draw_y >= SH1106_HEIGHT) continue;
+
+                int tex_x = (x + sprite_width / 2) * TROO_W / sprite_width;
+                int tex_y = y * TROO_H / sprite_height;
+
+                int bytes_per_row = (TROO_W + 7) / 8;
+                int byte_index = tex_y * bytes_per_row + (tex_x / 8);
+
+                int bit = 7 - (tex_x % 8);
+
+                if (sprite[byte_index] & (1 << bit)) {
+                    set_pixel(buffer, draw_x, draw_y, 1);
+                }
+            }
+        }
+    }
+}
+
+void render_projectiles(void)
+{
+    for (int i = 0; i < MAX_PROJECTILES; i++) {
+
+        if (!projectiles[i].active)
+            continue;
+
+        float angle_to_proj =
+            atan2f(projectiles[i].y - player.y,
+                   projectiles[i].x - player.x);
+
+        float angle_diff = angle_to_proj - player.angle;
+
+        while (angle_diff > M_PI)
+            angle_diff -= 2.0f * M_PI;
+
+        while (angle_diff < -M_PI)
+            angle_diff += 2.0f * M_PI;
+
+        float dx = player.x - projectiles[i].x;
+        float dy = player.y - projectiles[i].y;
+
+        float dist_to_player = sqrtf(dx * dx + dy * dy);
+
+        int screen_x =
+            (int)((angle_diff / FOV + 0.5f) * SH1106_WIDTH);
+
+        //----------------------------------------
+        // sprite size
+        //----------------------------------------
+
+        int sprite_height =
+            (int)(SH1106_HEIGHT / dist_to_player);
+
+        int sprite_width =
+            (FIREBALL_W * sprite_height) / FIREBALL_H;
+
+        int y0 =
+            (SH1106_HEIGHT / 2) - (sprite_height / 2);
+
+        //----------------------------------------
+        // current animation frame
+        //----------------------------------------
+
+        const uint8_t *sprite =
+            FIREBALL_FRAMES[projectiles[i].anim_frame];
+
+        //----------------------------------------
+        // draw columns
+        //----------------------------------------
+
+        for (int x = -sprite_width / 2;
+             x <= sprite_width / 2;
+             x++) {
+
+            int draw_x = screen_x + x;
+
+            if (draw_x < 0 || draw_x >= SH1106_WIDTH)
+                continue;
+
+            // hidden behind wall?
+            if (dist_to_player >= zbuffer[draw_x])
+                continue;
+
+            for (int y = 0; y < sprite_height; y++) {
+
+                int draw_y = y0 + y;
+
+                if (draw_y < 0 || draw_y >= SH1106_HEIGHT)
+                    continue;
+
+                int tex_x =
+                    (x + sprite_width / 2)
+                    * FIREBALL_W / sprite_width;
+
+                int tex_y =
+                    y * FIREBALL_H / sprite_height;
+
+                int bytes_per_row =
+                    (FIREBALL_W + 7) / 8;
+
+                int byte_index =
+                    tex_y * bytes_per_row
+                    + (tex_x / 8);
+
+                int bit =
+                    7 - (tex_x % 8);
+
+                if (sprite[byte_index] & (1 << bit)) {
+
+                    set_pixel(
+                        buffer,
+                        draw_x,
+                        draw_y,
+                        1
+                    );
                 }
             }
         }
@@ -499,9 +1456,15 @@ float cast_shoot_ray(void) {
     float ray_sin = sinf(player.angle);
 
     float dist = 0.0f;
-    for (dist = 0.0f; dist < MAX_DEPTH; dist += 0.05f) {
+    for (dist = 0.0f; dist < FIST_RANGE; dist += 0.05f) {
         float rx = player.x + ray_cos * dist;
         float ry = player.y + ray_sin * dist;
+
+        int mx = (int)rx;
+        int my = (int)ry;
+
+        if (mx < 0 || mx >= map_W || my < 0 || my >= map_H) return dist;
+        if (map[my][mx] == 1) return dist;
 
         for (int i = 0; i < MAX_ENEMIES; i++) {
             if (enemies[i].active ==1) {
@@ -513,7 +1476,16 @@ float cast_shoot_ray(void) {
                 
 
                     if (enemies[i].health <= 0) {
-                        enemies[i].active = 0;
+
+                        enemies[i].health = 0;
+
+                        enemies[i].state = ESTATE_DEAD;
+                        enemies[i].state_timer = 30;
+
+                    } else {
+
+                        enemies[i].state = ESTATE_PAIN;
+                        enemies[i].state_timer = 10;
                     }
                     
                     return dist; //stop ray
@@ -521,14 +1493,22 @@ float cast_shoot_ray(void) {
             }
         }
 
-        int mx = (int)rx;
-        int my = (int)ry;
-
-        if (mx < 0 || mx >= map_W || my < 0 || my >= map_H) return dist;
-        if (map[my][mx] == 1) return dist;
     }
     return -1.0f;
- }
+}
+
+void fist_attack(void) {
+
+    if (fist.state != WSTATE_IDLE)
+        return;
+
+    fist.state = WSTATE_ATTACK;
+
+    fist.frame = WFIST_B;
+
+    fist.anim_timer = 0;
+    fist.damage_done = 0;
+}
 
 
 // Movement
@@ -537,36 +1517,48 @@ static void handle_input(struct player_stats *stats) {
 
     // Sprint Modifier - 1 held
     int sprinting = key_pressed(ROW1, COL1);
-    float speed = sprinting ? MOVE_SPEED * 2.0f : MOVE_SPEED;
+    float speed = MOVE_SPEED * (sprinting ? 2.0f : 1.0f);
 
     // Forward - 2
     if (key_pressed(ROW1, COL2)) {
         nx = player.x + cosf(player.angle) * speed;
         ny = player.y + sinf(player.angle) * speed;
-        if (map[(int)ny][(int)nx] == 0) {
+
+        if (!is_wall(nx, player.y))
             player.x = nx;
+
+        if (!is_wall(player.x, ny))
             player.y = ny;
-        }
+
     }
 
     // Backward - 5
     if (key_pressed(ROW2, COL2)) {
         nx = player.x - cosf(player.angle) * speed;
         ny = player.y - sinf(player.angle) * speed;
-        if (map[(int)ny][(int)nx] == 0) {
+
+        if (!is_wall(nx, player.y))
             player.x = nx;
+
+        if (!is_wall(player.x, ny))
             player.y = ny;
-        }
+
     }
 
     // Turn left - 4
     if (key_pressed(ROW2, COL1)) {
         player.angle -= TURN_SPEED;
+
+        if (player.angle < 0)
+            player.angle += 2.0f * M_PI;
     }
 
     // Turn right - 6
     if (key_pressed(ROW2, COL3)) {
         player.angle += TURN_SPEED;
+
+        if (player.angle >= 2.0f * M_PI)
+            player.angle -= 2.0f * M_PI;
     }
 
     /* Use/interact - 3 (placeholder for now)
@@ -574,16 +1566,17 @@ static void handle_input(struct player_stats *stats) {
         Iteraction Logic goes here later
     }*/
 
-    // Shoot - A (placeholder for now)
-    if (key_pressed(ROW4, COL2)) {
-        if (stats -> ammo > 0) {
-           stats -> ammo --;
-            cast_shoot_ray();
-        }
+    // Shoot - A
+    int shoot_btn = key_pressed(ROW1, COL4);
+
+    if (shoot_btn && !prev_shoot_btn) {
+        fist_attack();
     }
 
+    prev_shoot_btn = shoot_btn;
+
     // Map toggle - D (edge triggered, not held)
-    int map_btn = key_pressed(ROW4, COL1);
+    int map_btn = key_pressed(ROW4, COL4);
     if (map_btn && !prev_map_btn)
         show_map = !show_map;
     prev_map_btn = map_btn;
@@ -599,39 +1592,54 @@ void app_main(void) {
     sh1106_init();
     keypad_init();
     enemies_init();
-    enemies[0].x = 9.0f;
-    enemies[0].y = 4.0f;
-    enemies[0].active = 1;
+    projectiles_init();
+    spawn_enemy(0, ENEMY_IMP, 9.0f, 4.0f);
+    spawn_enemy(1, ENEMY_PINKY, 12.0f, 7.0f);
+    spawn_enemy(2, ENEMY_BARON, 20.0f, 20.0f);  
 
     struct player_stats stats = {100, 0, 50};
 
-    while (1){
-        frame_counter++;
-        handle_input(&stats);
+    while (1) {
 
-        static int enemy_tick = 0;
-        enemy_tick++;
-        if (enemy_tick >= 3) {
-            enemies_update(&stats);
-            enemy_tick = 0;
-        }
+        int64_t frame_start = esp_timer_get_time();
+
+        handle_input(&stats);
+        update_fist();
+
+        enemies_update(&stats);
+        projectiles_update(&stats);
 
         if (show_map) {
             render_automap();
         } else {
             render();
             render_sprites();
+            render_projectiles();
             sh1106_draw(buffer);
-            // lcd_update_hud(&stats, last_fps);
         }
+
+        // FPS counter
+        frame_counter++;
         int64_t now = esp_timer_get_time();
         if (now - time_stamp >= 1000000) {
             last_fps = frame_counter;
             frame_counter = 0;
             time_stamp = now;
-            lcd_update_hud(&stats, last_fps); 
+            lcd_update_hud(&stats, last_fps);
         }
-        vTaskDelay(pdMS_TO_TICKS(16));
+
+        // FRAME LIMITER (correct version)
+        int64_t frame_end = esp_timer_get_time();
+        int64_t frame_time = frame_end - frame_start;
+
+        if (frame_time < FRAME_TIME_US) {
+
+            int delay_ms =
+                (FRAME_TIME_US - frame_time) / 1000;
+
+            if (delay_ms > 0)
+                vTaskDelay(pdMS_TO_TICKS(delay_ms));
+        }
     }
 }
 

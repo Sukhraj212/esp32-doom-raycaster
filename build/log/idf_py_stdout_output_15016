@@ -1,0 +1,39 @@
+Command: ninja all
+[1/9] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "C:\Users\Sukhraj Singh\Desktop\doom_esp32\build\bootloader\esp-idf\esptool_py" && C:\Espressif\tools\python\v5.5.3\venv\Scripts\python.exe C:/esp/v5.5.3/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 "C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin""
+Bootloader binary size 0x6630 bytes. 0x9d0 bytes (9%) free.
+[2/9] No install step for 'bootloader'
+[3/9] Completed 'bootloader'
+[4/9] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:221:22: warning: 'TROO_B1' initialized and declared 'extern'
+  221 | extern const uint8_t TROO_B1[TROO_W * TROO_H] = {0};
+      |                      ^~~~~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:222:22: warning: 'TROO_C1' initialized and declared 'extern'
+  222 | extern const uint8_t TROO_C1[TROO_W * TROO_H] = {0};
+      |                      ^~~~~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:223:22: warning: 'TROO_D1' initialized and declared 'extern'
+  223 | extern const uint8_t TROO_D1[TROO_W * TROO_H] = {0};
+      |                      ^~~~~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:544:13: warning: 'render_automap' defined but not used [-Wunused-function]
+  544 | static void render_automap(void) {
+      |             ^~~~~~~~~~~~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:61:12: warning: 'last_fps' defined but not used [-Wunused-variable]
+   61 | static int last_fps;
+      |            ^~~~~~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:60:16: warning: 'time_stamp' defined but not used [-Wunused-variable]
+   60 | static int64_t time_stamp;
+      |                ^~~~~~~~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:59:12: warning: 'frame_counter' defined but not used [-Wunused-variable]
+   59 | static int frame_counter;
+      |            ^~~~~~~~~~~~~
+[5/9] Linking C static library esp-idf\main\libmain.a
+[6/9] Generating esp-idf/esp_system/ld/sections.ld
+[7/9] Linking CXX executable doom_esp32.elf
+[8/9] Generating binary image from built executable
+esptool.py v4.12.dev1
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/doom_esp32.bin
+[9/9] C:\WINDOWS\system32\cmd.exe /C "cd /D "C:\Users\Sukhraj Singh\Desktop\doom_esp32\build\esp-idf\esptool_py" && C:\Espressif\tools\python\v5.5.3\venv\Scripts\python.exe C:/esp/v5.5.3/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app "C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/partition_table/partition-table.bin" "C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/doom_esp32.bin""
+doom_esp32.bin binary size 0x30470 bytes. Smallest app partition is 0x100000 bytes. 0xcfb90 bytes (81%) free.

@@ -1,0 +1,513 @@
+Command: ninja all
+[1/9] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D "C:\Users\Sukhraj Singh\Desktop\doom_esp32\build\bootloader\esp-idf\esptool_py" && C:\Espressif\tools\python\v5.5.3\venv\Scripts\python.exe C:/esp/v5.5.3/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 "C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/bootloader/bootloader.bin""
+Bootloader binary size 0x6630 bytes. 0x9d0 bytes (9%) free.
+[2/9] No install step for 'bootloader'
+[3/9] Completed 'bootloader'
+[4/9] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj 
+C:\Espressif\tools\xtensa-esp-elf\esp-14.2.0_20251107\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe -DESP_PLATFORM -DIDF_VER=\"v5.5.3\" -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -DUNITY_INCLUDE_CONFIG_H -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I"C:/Users/Sukhraj Singh/Desktop/doom_esp32/build/config" -I"C:/Users/Sukhraj Singh/Desktop/doom_esp32/main" -IC:/esp/v5.5.3/esp-idf/components/newlib/platform_include -IC:/esp/v5.5.3/esp-idf/components/freertos/config/include -IC:/esp/v5.5.3/esp-idf/components/freertos/config/include/freertos -IC:/esp/v5.5.3/esp-idf/components/freertos/config/xtensa/include -IC:/esp/v5.5.3/esp-idf/components/freertos/FreeRTOS-Kernel/include -IC:/esp/v5.5.3/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -IC:/esp/v5.5.3/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -IC:/esp/v5.5.3/esp-idf/components/freertos/esp_additions/include -IC:/esp/v5.5.3/esp-idf/components/esp_hw_support/include -IC:/esp/v5.5.3/esp-idf/components/esp_hw_support/include/soc -IC:/esp/v5.5.3/esp-idf/components/esp_hw_support/include/soc/esp32 -IC:/esp/v5.5.3/esp-idf/components/esp_hw_support/dma/include -IC:/esp/v5.5.3/esp-idf/components/esp_hw_support/ldo/include -IC:/esp/v5.5.3/esp-idf/components/esp_hw_support/debug_probe/include -IC:/esp/v5.5.3/esp-idf/components/esp_hw_support/mspi_timing_tuning/include -IC:/esp/v5.5.3/esp-idf/components/esp_hw_support/mspi_timing_tuning/tuning_scheme_impl/include -IC:/esp/v5.5.3/esp-idf/components/esp_hw_support/power_supply/include -IC:/esp/v5.5.3/esp-idf/components/esp_hw_support/port/esp32/. -IC:/esp/v5.5.3/esp-idf/components/esp_hw_support/port/esp32/include -IC:/esp/v5.5.3/esp-idf/components/heap/include -IC:/esp/v5.5.3/esp-idf/components/heap/tlsf -IC:/esp/v5.5.3/esp-idf/components/log/include -IC:/esp/v5.5.3/esp-idf/components/soc/include -IC:/esp/v5.5.3/esp-idf/components/soc/esp32 -IC:/esp/v5.5.3/esp-idf/components/soc/esp32/include -IC:/esp/v5.5.3/esp-idf/components/soc/esp32/register -IC:/esp/v5.5.3/esp-idf/components/hal/platform_port/include -IC:/esp/v5.5.3/esp-idf/components/hal/esp32/include -IC:/esp/v5.5.3/esp-idf/components/hal/include -IC:/esp/v5.5.3/esp-idf/components/esp_rom/include -IC:/esp/v5.5.3/esp-idf/components/esp_rom/esp32/include -IC:/esp/v5.5.3/esp-idf/components/esp_rom/esp32/include/esp32 -IC:/esp/v5.5.3/esp-idf/components/esp_rom/esp32 -IC:/esp/v5.5.3/esp-idf/components/esp_common/include -IC:/esp/v5.5.3/esp-idf/components/esp_system/include -IC:/esp/v5.5.3/esp-idf/components/esp_system/port/soc -IC:/esp/v5.5.3/esp-idf/components/esp_system/port/include/private -IC:/esp/v5.5.3/esp-idf/components/xtensa/esp32/include -IC:/esp/v5.5.3/esp-idf/components/xtensa/include -IC:/esp/v5.5.3/esp-idf/components/xtensa/deprecated_include -IC:/esp/v5.5.3/esp-idf/components/lwip/include -IC:/esp/v5.5.3/esp-idf/components/lwip/include/apps -IC:/esp/v5.5.3/esp-idf/components/lwip/include/apps/sntp -IC:/esp/v5.5.3/esp-idf/components/lwip/lwip/src/include -IC:/esp/v5.5.3/esp-idf/components/lwip/port/include -IC:/esp/v5.5.3/esp-idf/components/lwip/port/freertos/include -IC:/esp/v5.5.3/esp-idf/components/lwip/port/esp32xx/include -IC:/esp/v5.5.3/esp-idf/components/lwip/port/esp32xx/include/arch -IC:/esp/v5.5.3/esp-idf/components/lwip/port/esp32xx/include/sys -I"C:/Users/Sukhraj Singh/Desktop/doom_esp32/managed_components/tny-robotics__Sh1106-esp-idf/include" -IC:/esp/v5.5.3/esp-idf/components/driver/deprecated -IC:/esp/v5.5.3/esp-idf/components/driver/i2c/include -IC:/esp/v5.5.3/esp-idf/components/driver/touch_sensor/include -IC:/esp/v5.5.3/esp-idf/components/driver/twai/include -IC:/esp/v5.5.3/esp-idf/components/driver/touch_sensor/esp32/include -IC:/esp/v5.5.3/esp-idf/components/esp_pm/include -IC:/esp/v5.5.3/esp-idf/components/esp_ringbuf/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_gpio/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_pcnt/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_gptimer/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_spi/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_mcpwm/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_ana_cmpr/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_i2s/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_sdmmc/include -IC:/esp/v5.5.3/esp-idf/components/sdmmc/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_sdspi/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_sdio/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_dac/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_rmt/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_tsens/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_sdm/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_i2c/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_uart/include -IC:/esp/v5.5.3/esp-idf/components/vfs/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_ledc/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_parlio/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_usb_serial_jtag/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_twai/include -IC:/esp/v5.5.3/esp-idf/components/esp_lcd/include -IC:/esp/v5.5.3/esp-idf/components/esp_lcd/interface -IC:/esp/v5.5.3/esp-idf/components/mbedtls/port/include -IC:/esp/v5.5.3/esp-idf/components/mbedtls/mbedtls/include -IC:/esp/v5.5.3/esp-idf/components/mbedtls/mbedtls/library -IC:/esp/v5.5.3/esp-idf/components/mbedtls/esp_crt_bundle/include -IC:/esp/v5.5.3/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include -IC:/esp/v5.5.3/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m -IC:/esp/v5.5.3/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m -IC:/esp/v5.5.3/esp-idf/components/esp_app_format/include -IC:/esp/v5.5.3/esp-idf/components/esp_bootloader_format/include -IC:/esp/v5.5.3/esp-idf/components/app_update/include -IC:/esp/v5.5.3/esp-idf/components/bootloader_support/include -IC:/esp/v5.5.3/esp-idf/components/bootloader_support/bootloader_flash/include -IC:/esp/v5.5.3/esp-idf/components/esp_partition/include -IC:/esp/v5.5.3/esp-idf/components/efuse/include -IC:/esp/v5.5.3/esp-idf/components/efuse/esp32/include -IC:/esp/v5.5.3/esp-idf/components/esp_mm/include -IC:/esp/v5.5.3/esp-idf/components/spi_flash/include -IC:/esp/v5.5.3/esp-idf/components/esp_security/include -IC:/esp/v5.5.3/esp-idf/components/pthread/include -IC:/esp/v5.5.3/esp-idf/components/esp_timer/include -IC:/esp/v5.5.3/esp-idf/components/esp_psram/include -IC:/esp/v5.5.3/esp-idf/components/app_trace/include -IC:/esp/v5.5.3/esp-idf/components/esp_event/include -IC:/esp/v5.5.3/esp-idf/components/nvs_flash/include -IC:/esp/v5.5.3/esp-idf/components/esp_phy/include -IC:/esp/v5.5.3/esp-idf/components/esp_phy/esp32/include -IC:/esp/v5.5.3/esp-idf/components/esp_vfs_console/include -IC:/esp/v5.5.3/esp-idf/components/esp_netif/include -IC:/esp/v5.5.3/esp-idf/components/wpa_supplicant/include -IC:/esp/v5.5.3/esp-idf/components/wpa_supplicant/port/include -IC:/esp/v5.5.3/esp-idf/components/wpa_supplicant/esp_supplicant/include -IC:/esp/v5.5.3/esp-idf/components/esp_coex/include -IC:/esp/v5.5.3/esp-idf/components/esp_wifi/include -IC:/esp/v5.5.3/esp-idf/components/esp_wifi/include/local -IC:/esp/v5.5.3/esp-idf/components/esp_wifi/wifi_apps/include -IC:/esp/v5.5.3/esp-idf/components/esp_wifi/wifi_apps/nan_app/include -IC:/esp/v5.5.3/esp-idf/components/esp_gdbstub/include -IC:/esp/v5.5.3/esp-idf/components/unity/include -IC:/esp/v5.5.3/esp-idf/components/unity/unity/src -IC:/esp/v5.5.3/esp-idf/components/cmock/CMock/src -IC:/esp/v5.5.3/esp-idf/components/console -IC:/esp/v5.5.3/esp-idf/components/esp_driver_bitscrambler/include -IC:/esp/v5.5.3/esp-idf/components/http_parser -IC:/esp/v5.5.3/esp-idf/components/esp-tls -IC:/esp/v5.5.3/esp-idf/components/esp-tls/esp-tls-crypto -IC:/esp/v5.5.3/esp-idf/components/esp_adc/include -IC:/esp/v5.5.3/esp-idf/components/esp_adc/interface -IC:/esp/v5.5.3/esp-idf/components/esp_adc/esp32/include -IC:/esp/v5.5.3/esp-idf/components/esp_adc/deprecated/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_isp/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_cam/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_cam/interface -IC:/esp/v5.5.3/esp-idf/components/esp_driver_jpeg/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_ppa/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_touch_sens/include -IC:/esp/v5.5.3/esp-idf/components/esp_driver_touch_sens/hw_ver1/include -IC:/esp/v5.5.3/esp-idf/components/esp_eth/include -IC:/esp/v5.5.3/esp-idf/components/esp_hal_ieee802154/include -IC:/esp/v5.5.3/esp-idf/components/esp_hid/include -IC:/esp/v5.5.3/esp-idf/components/tcp_transport/include -IC:/esp/v5.5.3/esp-idf/components/esp_http_client/include -IC:/esp/v5.5.3/esp-idf/components/esp_http_server/include -IC:/esp/v5.5.3/esp-idf/components/esp_https_ota/include -IC:/esp/v5.5.3/esp-idf/components/esp_https_server/include -IC:/esp/v5.5.3/esp-idf/components/protobuf-c/protobuf-c -IC:/esp/v5.5.3/esp-idf/components/protocomm/include/common -IC:/esp/v5.5.3/esp-idf/components/protocomm/include/security -IC:/esp/v5.5.3/esp-idf/components/protocomm/include/transports -IC:/esp/v5.5.3/esp-idf/components/protocomm/include/crypto/srp6a -IC:/esp/v5.5.3/esp-idf/components/protocomm/proto-c -IC:/esp/v5.5.3/esp-idf/components/esp_local_ctrl/include -IC:/esp/v5.5.3/esp-idf/components/espcoredump/include -IC:/esp/v5.5.3/esp-idf/components/espcoredump/include/port/xtensa -IC:/esp/v5.5.3/esp-idf/components/wear_levelling/include -IC:/esp/v5.5.3/esp-idf/components/fatfs/diskio -IC:/esp/v5.5.3/esp-idf/components/fatfs/src -IC:/esp/v5.5.3/esp-idf/components/fatfs/vfs -IC:/esp/v5.5.3/esp-idf/components/idf_test/include -IC:/esp/v5.5.3/esp-idf/components/idf_test/include/esp32 -IC:/esp/v5.5.3/esp-idf/components/ieee802154/include -IC:/esp/v5.5.3/esp-idf/components/json/cJSON -IC:/esp/v5.5.3/esp-idf/components/mqtt/esp-mqtt/include -IC:/esp/v5.5.3/esp-idf/components/nvs_sec_provider/include -IC:/esp/v5.5.3/esp-idf/components/perfmon/include -IC:/esp/v5.5.3/esp-idf/components/rt/include -IC:/esp/v5.5.3/esp-idf/components/spiffs/include -IC:/esp/v5.5.3/esp-idf/components/wifi_provisioning/include -mlongcalls -Wno-frame-address  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap "-fmacro-prefix-map=C:/Users/Sukhraj Singh/Desktop/doom_esp32=." -fmacro-prefix-map=C:/esp/v5.5.3/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj -MF esp-idf\main\CMakeFiles\__idf_main.dir\main.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj -c "C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c"
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:9: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:9: note: (near initialization for 'TROOA1[0]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:15: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:15: note: (near initialization for 'TROOA1[1]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:21: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:21: note: (near initialization for 'TROOA1[2]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:27: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:27: note: (near initialization for 'TROOA1[3]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:33: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:33: note: (near initialization for 'TROOA1[4]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:39: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                                       ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:39: note: (near initialization for 'TROOA1[5]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:45: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:45: note: (near initialization for 'TROOA1[6]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:51: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:51: note: (near initialization for 'TROOA1[7]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:57: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                                                         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:57: note: (near initialization for 'TROOA1[8]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:63: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                                                               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:63: note: (near initialization for 'TROOA1[9]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:69: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                                                                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:69: note: (near initialization for 'TROOA1[10]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:75: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                                                                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:75: note: (near initialization for 'TROOA1[11]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:81: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                                                                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:81: note: (near initialization for 'TROOA1[12]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:87: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                                                                                       ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:87: note: (near initialization for 'TROOA1[13]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:93: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                                                                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:93: note: (near initialization for 'TROOA1[14]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:99: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  479 |         0x01, 0x80, 0x03, 0xc0, 0x03, 0xe0, 0x03, 0xc0, 0x06, 0xf4, 0x1f, 0xfc, 0x1f, 0x7c, 0x07, 0xf4,
+      |                                                                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:479:99: note: (near initialization for 'TROOA1[15]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:9: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:9: note: (near initialization for 'TROOA1[16]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:15: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:15: note: (near initialization for 'TROOA1[17]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:21: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:21: note: (near initialization for 'TROOA1[18]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:27: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:27: note: (near initialization for 'TROOA1[19]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:33: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:33: note: (near initialization for 'TROOA1[20]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:45: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:45: note: (near initialization for 'TROOA1[22]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:51: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:51: note: (near initialization for 'TROOA1[23]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:57: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |                                                         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:57: note: (near initialization for 'TROOA1[24]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:63: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |                                                               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:63: note: (near initialization for 'TROOA1[25]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:69: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |                                                                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:69: note: (near initialization for 'TROOA1[26]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:75: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |                                                                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:75: note: (near initialization for 'TROOA1[27]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:81: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |                                                                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:81: note: (near initialization for 'TROOA1[28]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:87: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |                                                                                       ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:87: note: (near initialization for 'TROOA1[29]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:93: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |                                                                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:93: note: (near initialization for 'TROOA1[30]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:99: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  480 |         0x22, 0x74, 0x03, 0xe4, 0x40, 0x00, 0x41, 0xc1, 0x43, 0xe3, 0x47, 0xb2, 0x47, 0x70, 0x07, 0x30,
+      |                                                                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:480:99: note: (near initialization for 'TROOA1[31]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:9: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  481 |         0x07, 0x20, 0x00, 0x00, 0x03, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x20, 0x01, 0x00, 0x02, 0x80
+      |         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:9: note: (near initialization for 'TROOA1[32]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:15: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  481 |         0x07, 0x20, 0x00, 0x00, 0x03, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x20, 0x01, 0x00, 0x02, 0x80
+      |               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:15: note: (near initialization for 'TROOA1[33]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:33: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  481 |         0x07, 0x20, 0x00, 0x00, 0x03, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x20, 0x01, 0x00, 0x02, 0x80
+      |                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:33: note: (near initialization for 'TROOA1[36]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:45: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  481 |         0x07, 0x20, 0x00, 0x00, 0x03, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x20, 0x01, 0x00, 0x02, 0x80
+      |                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:45: note: (near initialization for 'TROOA1[38]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:69: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  481 |         0x07, 0x20, 0x00, 0x00, 0x03, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x20, 0x01, 0x00, 0x02, 0x80
+      |                                                                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:69: note: (near initialization for 'TROOA1[42]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:75: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  481 |         0x07, 0x20, 0x00, 0x00, 0x03, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x20, 0x01, 0x00, 0x02, 0x80
+      |                                                                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:75: note: (near initialization for 'TROOA1[43]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:81: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  481 |         0x07, 0x20, 0x00, 0x00, 0x03, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x20, 0x01, 0x00, 0x02, 0x80
+      |                                                                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:81: note: (near initialization for 'TROOA1[44]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:93: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  481 |         0x07, 0x20, 0x00, 0x00, 0x03, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x20, 0x01, 0x00, 0x02, 0x80
+      |                                                                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:93: note: (near initialization for 'TROOA1[46]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:99: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  481 |         0x07, 0x20, 0x00, 0x00, 0x03, 0x00, 0x03, 0x00, 0x00, 0x00, 0x01, 0x20, 0x01, 0x00, 0x02, 0x80
+      |                                                                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:481:99: note: (near initialization for 'TROOA1[47]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:9: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:9: note: (near initialization for 'TROOB1[0]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:15: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:15: note: (near initialization for 'TROOB1[1]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:21: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:21: note: (near initialization for 'TROOB1[2]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:27: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:27: note: (near initialization for 'TROOB1[3]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:33: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:33: note: (near initialization for 'TROOB1[4]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:39: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                                       ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:39: note: (near initialization for 'TROOB1[5]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:45: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:45: note: (near initialization for 'TROOB1[6]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:51: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:51: note: (near initialization for 'TROOB1[7]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:57: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                                                         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:57: note: (near initialization for 'TROOB1[8]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:63: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                                                               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:63: note: (near initialization for 'TROOB1[9]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:69: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                                                                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:69: note: (near initialization for 'TROOB1[10]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:75: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                                                                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:75: note: (near initialization for 'TROOB1[11]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:81: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                                                                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:81: note: (near initialization for 'TROOB1[12]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:87: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                                                                                       ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:87: note: (near initialization for 'TROOB1[13]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:93: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                                                                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:93: note: (near initialization for 'TROOB1[14]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:99: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  485 |         0x03, 0x80, 0x03, 0xc0, 0x03, 0xc0, 0x07, 0xc0, 0x3c, 0xf8, 0x3c, 0xf8, 0x1f, 0xfc, 0x42, 0x74,
+      |                                                                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:485:99: note: (near initialization for 'TROOB1[15]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:9: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:9: note: (near initialization for 'TROOB1[16]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:15: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:15: note: (near initialization for 'TROOB1[17]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:21: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:21: note: (near initialization for 'TROOB1[18]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:27: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:27: note: (near initialization for 'TROOB1[19]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:33: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:33: note: (near initialization for 'TROOB1[20]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:39: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                                       ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:39: note: (near initialization for 'TROOB1[21]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:45: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:45: note: (near initialization for 'TROOB1[22]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:51: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:51: note: (near initialization for 'TROOB1[23]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:57: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                                                         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:57: note: (near initialization for 'TROOB1[24]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:63: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                                                               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:63: note: (near initialization for 'TROOB1[25]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:69: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                                                                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:69: note: (near initialization for 'TROOB1[26]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:75: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                                                                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:75: note: (near initialization for 'TROOB1[27]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:81: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                                                                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:81: note: (near initialization for 'TROOB1[28]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:87: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                                                                                       ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:87: note: (near initialization for 'TROOB1[29]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:93: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                                                                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:93: note: (near initialization for 'TROOB1[30]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:99: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  486 |         0x02, 0x46, 0x02, 0x22, 0x41, 0x86, 0x07, 0xae, 0x07, 0xe0, 0x04, 0xf0, 0x04, 0x70, 0x04, 0x70,
+      |                                                                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:486:99: note: (near initialization for 'TROOB1[31]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:15: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  487 |         0x00, 0x70, 0x00, 0x60, 0x05, 0x60, 0x00, 0x70, 0x00, 0x60, 0x00, 0x20, 0x02, 0x20, 0x00, 0x70
+      |               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:15: note: (near initialization for 'TROOB1[33]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:27: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  487 |         0x00, 0x70, 0x00, 0x60, 0x05, 0x60, 0x00, 0x70, 0x00, 0x60, 0x00, 0x20, 0x02, 0x20, 0x00, 0x70
+      |                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:27: note: (near initialization for 'TROOB1[35]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:33: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  487 |         0x00, 0x70, 0x00, 0x60, 0x05, 0x60, 0x00, 0x70, 0x00, 0x60, 0x00, 0x20, 0x02, 0x20, 0x00, 0x70
+      |                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:33: note: (near initialization for 'TROOB1[36]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:39: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  487 |         0x00, 0x70, 0x00, 0x60, 0x05, 0x60, 0x00, 0x70, 0x00, 0x60, 0x00, 0x20, 0x02, 0x20, 0x00, 0x70
+      |                                       ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:39: note: (near initialization for 'TROOB1[37]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:51: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  487 |         0x00, 0x70, 0x00, 0x60, 0x05, 0x60, 0x00, 0x70, 0x00, 0x60, 0x00, 0x20, 0x02, 0x20, 0x00, 0x70
+      |                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:51: note: (near initialization for 'TROOB1[39]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:63: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  487 |         0x00, 0x70, 0x00, 0x60, 0x05, 0x60, 0x00, 0x70, 0x00, 0x60, 0x00, 0x20, 0x02, 0x20, 0x00, 0x70
+      |                                                               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:63: note: (near initialization for 'TROOB1[41]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:75: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  487 |         0x00, 0x70, 0x00, 0x60, 0x05, 0x60, 0x00, 0x70, 0x00, 0x60, 0x00, 0x20, 0x02, 0x20, 0x00, 0x70
+      |                                                                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:75: note: (near initialization for 'TROOB1[43]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:81: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  487 |         0x00, 0x70, 0x00, 0x60, 0x05, 0x60, 0x00, 0x70, 0x00, 0x60, 0x00, 0x20, 0x02, 0x20, 0x00, 0x70
+      |                                                                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:81: note: (near initialization for 'TROOB1[44]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:87: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  487 |         0x00, 0x70, 0x00, 0x60, 0x05, 0x60, 0x00, 0x70, 0x00, 0x60, 0x00, 0x20, 0x02, 0x20, 0x00, 0x70
+      |                                                                                       ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:87: note: (near initialization for 'TROOB1[45]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:99: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  487 |         0x00, 0x70, 0x00, 0x60, 0x05, 0x60, 0x00, 0x70, 0x00, 0x60, 0x00, 0x20, 0x02, 0x20, 0x00, 0x70
+      |                                                                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:487:99: note: (near initialization for 'TROOB1[47]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:490:32: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  490 | static const uint8_t* TROOC1[] {
+      |                                ^
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:9: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:9: note: (near initialization for 'TROOD1[0]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:15: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:15: note: (near initialization for 'TROOD1[1]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:21: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:21: note: (near initialization for 'TROOD1[2]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:27: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:27: note: (near initialization for 'TROOD1[3]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:33: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:33: note: (near initialization for 'TROOD1[4]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:39: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                                       ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:39: note: (near initialization for 'TROOD1[5]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:45: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:45: note: (near initialization for 'TROOD1[6]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:51: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:51: note: (near initialization for 'TROOD1[7]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:57: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                                                         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:57: note: (near initialization for 'TROOD1[8]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:63: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                                                               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:63: note: (near initialization for 'TROOD1[9]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:69: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                                                                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:69: note: (near initialization for 'TROOD1[10]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:75: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                                                                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:75: note: (near initialization for 'TROOD1[11]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:81: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                                                                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:81: note: (near initialization for 'TROOD1[12]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:87: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                                                                                       ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:87: note: (near initialization for 'TROOD1[13]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:93: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                                                                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:93: note: (near initialization for 'TROOD1[14]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:99: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  497 |         0x03, 0x80, 0x03, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x1f, 0x3c, 0x1f, 0x3c, 0x1e, 0x78, 0x66, 0x62,
+      |                                                                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:497:99: note: (near initialization for 'TROOD1[15]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:9: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  498 |         0x46, 0x60, 0x64, 0x40, 0x61, 0xc1, 0x00, 0xa0, 0x07, 0xe0, 0x07, 0x00, 0x07, 0x00, 0x07, 0x00,
+      |         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:9: note: (near initialization for 'TROOD1[16]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:15: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  498 |         0x46, 0x60, 0x64, 0x40, 0x61, 0xc1, 0x00, 0xa0, 0x07, 0xe0, 0x07, 0x00, 0x07, 0x00, 0x07, 0x00,
+      |               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:15: note: (near initialization for 'TROOD1[17]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:21: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  498 |         0x46, 0x60, 0x64, 0x40, 0x61, 0xc1, 0x00, 0xa0, 0x07, 0xe0, 0x07, 0x00, 0x07, 0x00, 0x07, 0x00,
+      |                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:21: note: (near initialization for 'TROOD1[18]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:27: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  498 |         0x46, 0x60, 0x64, 0x40, 0x61, 0xc1, 0x00, 0xa0, 0x07, 0xe0, 0x07, 0x00, 0x07, 0x00, 0x07, 0x00,
+      |                           ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:27: note: (near initialization for 'TROOD1[19]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:33: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  498 |         0x46, 0x60, 0x64, 0x40, 0x61, 0xc1, 0x00, 0xa0, 0x07, 0xe0, 0x07, 0x00, 0x07, 0x00, 0x07, 0x00,
+      |                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:33: note: (near initialization for 'TROOD1[20]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:39: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  498 |         0x46, 0x60, 0x64, 0x40, 0x61, 0xc1, 0x00, 0xa0, 0x07, 0xe0, 0x07, 0x00, 0x07, 0x00, 0x07, 0x00,
+      |                                       ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:39: note: (near initialization for 'TROOD1[21]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:51: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  498 |         0x46, 0x60, 0x64, 0x40, 0x61, 0xc1, 0x00, 0xa0, 0x07, 0xe0, 0x07, 0x00, 0x07, 0x00, 0x07, 0x00,
+      |                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:51: note: (near initialization for 'TROOD1[23]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:57: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  498 |         0x46, 0x60, 0x64, 0x40, 0x61, 0xc1, 0x00, 0xa0, 0x07, 0xe0, 0x07, 0x00, 0x07, 0x00, 0x07, 0x00,
+      |                                                         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:57: note: (near initialization for 'TROOD1[24]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:63: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  498 |         0x46, 0x60, 0x64, 0x40, 0x61, 0xc1, 0x00, 0xa0, 0x07, 0xe0, 0x07, 0x00, 0x07, 0x00, 0x07, 0x00,
+      |                                                               ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:63: note: (near initialization for 'TROOD1[25]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:69: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  498 |         0x46, 0x60, 0x64, 0x40, 0x61, 0xc1, 0x00, 0xa0, 0x07, 0xe0, 0x07, 0x00, 0x07, 0x00, 0x07, 0x00,
+      |                                                                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:69: note: (near initialization for 'TROOD1[26]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:81: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  498 |         0x46, 0x60, 0x64, 0x40, 0x61, 0xc1, 0x00, 0xa0, 0x07, 0xe0, 0x07, 0x00, 0x07, 0x00, 0x07, 0x00,
+      |                                                                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:81: note: (near initialization for 'TROOD1[28]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:93: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  498 |         0x46, 0x60, 0x64, 0x40, 0x61, 0xc1, 0x00, 0xa0, 0x07, 0xe0, 0x07, 0x00, 0x07, 0x00, 0x07, 0x00,
+      |                                                                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:498:93: note: (near initialization for 'TROOD1[30]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:9: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  499 |         0x07, 0x00, 0x06, 0x00, 0x02, 0x20, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x00, 0x02, 0x80
+      |         ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:9: note: (near initialization for 'TROOD1[32]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:21: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  499 |         0x07, 0x00, 0x06, 0x00, 0x02, 0x20, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x00, 0x02, 0x80
+      |                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:21: note: (near initialization for 'TROOD1[34]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:33: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  499 |         0x07, 0x00, 0x06, 0x00, 0x02, 0x20, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x00, 0x02, 0x80
+      |                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:33: note: (near initialization for 'TROOD1[36]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:39: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  499 |         0x07, 0x00, 0x06, 0x00, 0x02, 0x20, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x00, 0x02, 0x80
+      |                                       ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:39: note: (near initialization for 'TROOD1[37]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:69: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  499 |         0x07, 0x00, 0x06, 0x00, 0x02, 0x20, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x00, 0x02, 0x80
+      |                                                                     ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:69: note: (near initialization for 'TROOD1[42]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:81: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  499 |         0x07, 0x00, 0x06, 0x00, 0x02, 0x20, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x00, 0x02, 0x80
+      |                                                                                 ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:81: note: (near initialization for 'TROOD1[44]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:93: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  499 |         0x07, 0x00, 0x06, 0x00, 0x02, 0x20, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x00, 0x02, 0x80
+      |                                                                                             ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:93: note: (near initialization for 'TROOD1[46]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:99: error: initialization of 'const uint8_t *' {aka 'const unsigned char *'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  499 |         0x07, 0x00, 0x06, 0x00, 0x02, 0x20, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x00, 0x02, 0x80
+      |                                                                                                   ^~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:499:99: note: (near initialization for 'TROOD1[47]')
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:502:37: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  502 | static const uint8_t* TROO_FRAMES[] {
+      |                                     ^
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c: In function 'render_sprites':
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:940:26: error: 'TROO_FRAMES' undeclared (first use in this function)
+  940 |                 sprite = TROO_FRAMES[enemies[i].anim_frame % 4];
+      |                          ^~~~~~~~~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:940:26: note: each undeclared identifier is reported only once for each function it appears in
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:937:9: error: enumeration value 'ENEMY_TROOPER' not handled in switch [-Werror=switch]
+  937 |         switch(enemies[i].type) {
+      |         ^~~~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:937:9: error: enumeration value 'ENEMY_SERGEANT' not handled in switch [-Werror=switch]
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:937:9: error: enumeration value 'ENEMY_PINKY' not handled in switch [-Werror=switch]
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:937:9: error: enumeration value 'ENEMY_BARON' not handled in switch [-Werror=switch]
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c: At top level:
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:496:23: warning: 'TROOD1' defined but not used [-Wunused-variable]
+  496 | static const uint8_t* TROOD1[] = {
+      |                       ^~~~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:484:23: warning: 'TROOB1' defined but not used [-Wunused-variable]
+  484 | static const uint8_t* TROOB1[] = {
+      |                       ^~~~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:478:23: warning: 'TROOA1' defined but not used [-Wunused-variable]
+  478 | static const uint8_t* TROOA1[] = {
+      |                       ^~~~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:80:14: warning: 'deltaTime' defined but not used [-Wunused-variable]
+   80 | static float deltaTime = 1.0f / TARGET_FPS;
+      |              ^~~~~~~~~
+cc1.exe: some warnings being treated as errors
+ninja: build stopped: subcommand failed.

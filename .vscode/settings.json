@@ -11,7 +11,12 @@
   "idf.portWin": "COM3",
   "idf.flashType": "UART",
   "cSpell.words": [
-    "Espressif"
+    "Espressif",
+    "OLED",
+    "TROO",
+    "WFIST",
+    "WSTATE",
+    "zbuffer"
   ],
   "C_Cpp.errorSquiggles": "disabled"
 }
