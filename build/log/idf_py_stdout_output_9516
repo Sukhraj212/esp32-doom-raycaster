@@ -10,12 +10,28 @@ C:\Espressif\tools\xtensa-esp-elf\esp-14.2.0_20251107\xtensa-esp-elf\bin\xtensa-
 C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:257:1: warning: useless storage class specifier in empty declaration
   257 | };
       | ^
-C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c: In function 'update_projectiles':
-C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1600:13: error: 'stats' undeclared (first use in this function); did you mean 'stat'?
- 1600 |             stats.health -= projectiles[i].damage;
-      |             ^~~~~
-      |             stat
-C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1600:13: note: each undeclared identifier is reported only once for each function it appears in
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c: In function 'render_sprites':
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1376:15: warning: unused variable 'dy' [-Wunused-variable]
+ 1376 |         float dy = player.y - enemies[i].y;
+      |               ^~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1375:15: warning: unused variable 'dx' [-Wunused-variable]
+ 1375 |         float dx = player.x - enemies[i].x;
+      |               ^~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c: In function 'render_projectiles':
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1534:38: error: 'sorted' undeclared (first use in this function); did you mean 'strtod'?
+ 1534 |         float dist_to_player = sqrtf(sorted[k].dist);
+      |                                      ^~~~~~
+      |                                      strtod
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1534:38: note: each undeclared identifier is reported only once for each function it appears in
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1534:45: error: 'k' undeclared (first use in this function)
+ 1534 |         float dist_to_player = sqrtf(sorted[k].dist);
+      |                                             ^
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1532:15: warning: unused variable 'dy' [-Wunused-variable]
+ 1532 |         float dy = player.y - projectiles[i].y;
+      |               ^~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1531:15: warning: unused variable 'dx' [-Wunused-variable]
+ 1531 |         float dx = player.x - projectiles[i].x;
+      |               ^~
 C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c: At top level:
 C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:85:14: warning: 'deltaTime' defined but not used [-Wunused-variable]
    85 | static float deltaTime = 1.0f / TARGET_FPS;

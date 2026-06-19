@@ -10,12 +10,16 @@ C:\Espressif\tools\xtensa-esp-elf\esp-14.2.0_20251107\xtensa-esp-elf\bin\xtensa-
 C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:257:1: warning: useless storage class specifier in empty declaration
   257 | };
       | ^
-C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c: In function 'update_projectiles':
-C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1600:13: error: 'stats' undeclared (first use in this function); did you mean 'stat'?
- 1600 |             stats.health -= projectiles[i].damage;
-      |             ^~~~~
-      |             stat
-C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1600:13: note: each undeclared identifier is reported only once for each function it appears in
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c: In function 'app_main':
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1860:9: error: implicit declaration of function 'clear_buffer' [-Wimplicit-function-declaration]
+ 1860 |         clear_buffer(buffer);
+      |         ^~~~~~~~~~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1862:9: error: implicit declaration of function 'draw_string' [-Wimplicit-function-declaration]
+ 1862 |         draw_string(buffer, 40, 25, "GAME OVER");
+      |         ^~~~~~~~~~~
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1866:9: error: continue statement not within a loop
+ 1866 |         continue;
+      |         ^~~~~~~~
 C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c: At top level:
 C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:85:14: warning: 'deltaTime' defined but not used [-Wunused-variable]
    85 | static float deltaTime = 1.0f / TARGET_FPS;

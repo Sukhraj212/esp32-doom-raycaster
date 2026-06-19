@@ -11,10 +11,9 @@ C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:257:1: warning: useless st
   257 | };
       | ^
 C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c: In function 'update_projectiles':
-C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1600:13: error: 'stats' undeclared (first use in this function); did you mean 'stat'?
- 1600 |             stats.health -= projectiles[i].damage;
-      |             ^~~~~
-      |             stat
+C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1600:13: error: 'stat' undeclared (first use in this function)
+ 1600 |             stat.health -= projectiles[i].damage;
+      |             ^~~~
 C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:1600:13: note: each undeclared identifier is reported only once for each function it appears in
 C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c: At top level:
 C:/Users/Sukhraj Singh/Desktop/doom_esp32/main/main.c:85:14: warning: 'deltaTime' defined but not used [-Wunused-variable]
